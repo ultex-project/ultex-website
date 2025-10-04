@@ -1,0 +1,9 @@
+.hero-glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+.gradient-bg {
+    background-image: url("/images/Hero-glowing.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
