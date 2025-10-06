@@ -1,10 +1,12 @@
 // src/components/Footer.tsx
 import Image from "next/image";
 import Link from "next/link";
+import ContactBridgeCTA from "@/app/(components)/ContactBridgeCTA";
 
 export default function Footer() {
     return (
         <footer className="bg-black text-white pt-12 pb-6">
+            <ContactBridgeCTA/>
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>

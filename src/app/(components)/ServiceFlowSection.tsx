@@ -32,30 +32,15 @@ export default function ServiceFlowSection() {
                 {/* Main Flow */}
                 <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
                     {/* Left Card: Amazing Service */}
-                    <div className="lg:w-[280px]">
-                        <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#102144] via-[#0C1633] to-[#030615] p-6 shadow-[0_30px_50px_-40px_rgba(50,143,255,0.8)]">
-                            <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, rgba(80,160,255,0.6), transparent 55%)" }} />
-                            <div className="relative flex h-full flex-col justify-between gap-6">
-                                <div className="space-y-2">
-                                    <span className="inline-flex items-center gap-2 text-sm font-medium text-sky-300">
-                                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
-                                            <Image src="/icons/team-icon.png" alt="Service icon" width={28} height={28} />
-                                        </span>
-                                        Amazing service
-                                    </span>
-                                    <h3 className="text-2xl font-semibold leading-tight">Best-in-class support</h3>
-                                </div>
-                                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                                    <p className="text-sm leading-relaxed text-gray-200">
-                                        Des experts à l&apos;écoute de vos besoins 24/7 pour garantir une expérience fluide et adaptée à vos opérations logistiques.
-                                    </p>
-                                </div>
-                                <div className="flex items-center justify-between text-xs text-white/60">
-                                    <span>Best Team</span>
-                                    <span>Best Quality</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="lg:w-[280px] flex justify-center">
+                        <Image
+                            src="/images/amazing-serving.svg"
+                            alt="Amazing service illustration"
+                            width={182}
+                            height={216}
+                            className="h-auto w-full max-w-[260px]"
+                            priority
+                        />
                     </div>
 
                     {/* Steps Flow */}
@@ -67,36 +52,34 @@ export default function ServiceFlowSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
                                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                                className="relative flex-1"
+                                className="relative flex-1 lg:-mr-16 lg:max-w-[360px] lg:last:mr-0"
                             >
-                                <div
-                                    className="h-full rounded-2xl bg-[#0F1A32]/80 p-6 backdrop-blur"
-                                    style={{
-                                        clipPath:
-                                            index === steps.length - 1
-                                                ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
-                                                : "polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%)",
-                                    }}
-                                >
-                                    <div className="flex items-start gap-4">
-                                        <span className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-full bg-sky-500/20 text-sky-300">
-                                            <Image src={step.icon} alt={step.title} width={32} height={32} />
-                                        </span>
-                                        <div className="text-left">
-                                            <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                                            <p className="mt-2 text-sm leading-relaxed text-gray-300">{step.description}</p>
-                                        </div>
+                                <div className="relative flex h-full min-h-[210px] flex-col gap-6 overflow-hidden rounded-2xl bg-[#0F1A32]/90 px-8 py-10 text-left shadow-[0_20px_45px_-35px_rgba(12,66,129,0.6)] lg:px-10">
+                                    <Image
+                                        src="/images/arrow-step.svg"
+                                        alt=""
+                                        fill
+                                        priority={index === 0}
+                                        sizes="(min-width: 1024px) 33vw, 100vw"
+                                        className="pointer-events-none select-none object-cover object-left hidden lg:block"
+                                    />
+                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#131E32]/95 via-[#0E1626]/85 to-[#070D18]/80 lg:hidden" />
+                                    <div className="relative z-10 flex flex-col gap-4 text-left lg:max-w-[280px]">
+                                        <Image
+                                            src={step.icon}
+                                            alt={step.title}
+                                            width={48}
+                                            height={48}
+                                            className="h-12 w-12"
+                                        />
+                                        <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                                        <p className="text-sm leading-relaxed text-gray-300">{step.description}</p>
                                     </div>
                                 </div>
-
-                                {index !== steps.length - 1 && (
-                                    <div className="absolute right-[-24px] top-1/2 hidden -translate-y-1/2 lg:block">
-                                        <div className="h-[2px] w-12 bg-gradient-to-r from-sky-500/40 to-transparent" />
-                                    </div>
-                                )}
                             </motion.div>
                         ))}
                     </div>
+
                 </div>
 
                 {/* Footer Text */}
@@ -113,3 +96,4 @@ export default function ServiceFlowSection() {
         </section>
     );
 }
+

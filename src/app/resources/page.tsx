@@ -1,0 +1,184 @@
+// src/app/resources/page.tsx
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Header from "@/app/(components)/Header";
+import Footer from "@/app/(components)/Footer";
+
+type Resource = {
+    title: string;
+    excerpt: string;
+    image: string;
+    href: string;
+};
+
+const items: Resource[] = [
+    {
+        title:
+            "Coupe du monde 2030: quel impact sur l’économie du Royaume et le transport international",
+        excerpt:
+            "La Coupe du Monde 2030 est un événement sportif d’envergure mondiale qui attire des millions de spectateurs et génère des…",
+        image: "/images/resource-1.jpg",
+        href: "/resources/coupe-du-monde-2030-impact",
+    },
+    {
+        title:
+            "La transition vers des carburants plus écologiques dans le transport maritime européen offre des opportunités favorables au Maroc",
+        excerpt:
+            "Le Maroc se positionne comme un acteur clé dans la transition vers des carburants maritimes verts en Europe, ce qui…",
+        image: "/images/resource-2.jpg",
+        href: "/resources/transition-carburants-verts",
+    },
+    {
+        title:
+            "Les nouvelles réglementations douanières en 2024 : ce que vous devez savoir",
+        excerpt:
+            "En 2024, le monde des affaires au Maroc est en pleine effervescence avec l’entrée en vigueur de nouvelles…",
+        image: "/images/resource-3.jpg",
+        href: "/resources/reglementations-douanieres-2024",
+    },
+    {
+        title:
+            "La conjoncture de la guerre de la mer rouge : Impact sur le transport international",
+        excerpt:
+            "Depuis plusieurs années, la région de la Mer Rouge est le théâtre de tensions géopolitiques, avec des répercussions…",
+        image: "/images/resource-4.jpg",
+        href: "/resources/mer-rouge-transport",
+    },
+    {
+        title: "Les tendances de la supply chain pour 2024",
+        excerpt:
+            "Alors que nous avançons vers 2024, le paysage de la supply chain continue d’évoluer à un rythme rapide, façonné par…",
+        image: "/images/resource-5.jpg",
+        href: "/resources/tendances-supply-chain-2024",
+    },
+    {
+        title: "Tanger Med: Le géant du commerce international",
+        excerpt:
+            "Le port Tanger Med, situé à la croisée des routes maritimes mondiales, constitue un hub majeur dans le réseau du…",
+        image: "/images/resource-6.jpg",
+        href: "/resources/tanger-med-hub",
+    }
+];
+
+export default function ResourcesPage() {
+    return (
+        <main className="bg-white">
+            {/* HERO */}
+            <section className="relative bg-[#050A12] text-white overflow-hidden">
+                <Header />
+
+                {/* backdrop */}
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/solutions-hero.jpg" // change to your banner
+                        alt="Solutions ULTex banner"
+                        fill
+                        className="object-cover opacity-60"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0B1A30]/80 via-[#08111D]/70 to-[#050A12]" />
+                </div>
+
+                <div className="relative container mx-auto px-6 lg:px-12 py-16">
+                    <div className="max-w-6xl">
+                        <div className="text-blue-200/90 font-semibold">
+                            <span className="text-lg">Resources</span>
+                            <span className="block text-2xl font-funnel-display">ULTex</span>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                {/* Curved bottom edge */}
+                {/*<div className="absolute -bottom-px left-0 right-0">*/}
+                {/*    <svg*/}
+                {/*        xmlns="http://www.w3.org/2000/svg"*/}
+                {/*        viewBox="0 0 1440 220"*/}
+                {/*        className="w-full h-[90px] fill-white"*/}
+                {/*        preserveAspectRatio="none"*/}
+                {/*    >*/}
+                {/*        <path d="M0,128L48,112C96,96,192,64,288,80C384,96,480,160,576,170.7C672,181,768,139,864,122.7C960,107,1056,117,1152,122.7C1248,128,1344,128,1392,128L1440,128L1440,220L1392,220C1344,220,1248,220,1152,220C1056,220,960,220,864,220C768,220,672,220,576,220C480,220,384,220,288,220C192,220,96,220,48,220L0,220Z"></path>*/}
+                {/*    </svg>*/}
+                {/*</div>*/}
+            </section>
+            <section className="py-14 md:py-16">
+                <div className="container mx-auto px-6 lg:px-12">
+                    {/* Titre + intro */}
+                    <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 text-center leading-tight font-funnel-display">
+                        Participations ULTEx aux Salons et Forums Logistiques
+                    </h1>
+                    <p className="mt-4 text-gray-600 text-center max-w-3xl mx-auto">
+                        ULTEx participe activement aux grands événements du secteur logistique, de l’import-export et du commerce
+                        international. À travers des salons, forums et rencontres professionnelles, nous développons notre présence
+                        et notre réseau grâce à des partenariats stratégiques.
+                    </p>
+
+                    {/* Grille de cartes */}
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {items.map((r, i) => (
+                            <motion.article
+                                key={r.href}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.25 }}
+                                transition={{ duration: 0.5, delay: i * 0.05 }}
+                                className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-[0_20px_50px_-25px_rgba(2,6,23,0.25)]"
+                            >
+                                {/* Image */}
+                                <div className="relative h-40 md:h-44">
+                                    <Image
+                                        src={r.image}
+                                        alt={r.title}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                                        priority={i < 2}
+                                    />
+                                    {/* petit halo haut */}
+                                    <div className="absolute inset-x-0 -top-6 h-10 bg-gradient-to-b from-blue-500/10 to-transparent pointer-events-none" />
+                                </div>
+
+                                {/* Contenu */}
+                                <div className="px-5 pb-5 -mt-4">
+                                    <div className="rounded-xl bg-white border border-gray-200 p-4 shadow-sm">
+                                        <h3 className="text-[15px] font-semibold text-gray-900">{r.title}</h3>
+                                        <p className="mt-2 text-sm leading-6 text-gray-600">
+                                            {r.excerpt}
+                                        </p>
+
+                                        <div className="mt-4">
+                                            <Link
+                                                href={r.href}
+                                                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
+                                            >
+                                                Continuer à lire
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    className="w-4 h-4"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    aria-hidden="true"
+                                                >
+                                                    <path d="M9 18l6-6-6-6" />
+                                                </svg>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <Footer/>
+        </main>
+    );
+}
+

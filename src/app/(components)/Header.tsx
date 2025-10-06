@@ -93,7 +93,7 @@ export default function Header() {
                         </Link>
                     ))}
                     <Link
-                        href="#contact"
+                        href="/contact"
                         className="block w-full text-center bg-white text-black px-6 py-2 rounded-full font-medium transition-all font-funnel-display"
                         onClick={() => setIsMenuOpen(false)}
                     >
