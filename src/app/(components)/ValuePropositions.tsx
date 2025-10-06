@@ -38,11 +38,11 @@ export default function ValuePropositions() {
     ];
 
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
+        <section className="bg-white mt-10">
+            <div className="container mx-auto px-6 xl:px-24 py-16">
                 {/* Section Title */}
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-funnel-display">
-                    Optimisez Vos Flux Logistiques et Exploitez les Opportunités du Marché Mondial Avec
+                <h2 className="text-3xl md:text-4xl font-bold text-left mb-12 font-funnel-display">
+                    Optimisez Vos Flux Logistiques et Exploitez les <br/> Opportunités du Marché Mondial Avec
                 </h2>
 
                 {/* Grid Layout - 2 rows */}
