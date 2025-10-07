@@ -34,4 +34,17 @@ body {
 h1, h2, h3, .font-funnel-display {
   font-family: var(--font-funnel-display), sans-serif;
 }
+.highlight-block{
+  position: relative;
+  display: inline-block;      /* ← clé : largeur = contenu */
+  max-width: 68ch;            /* ajuste la largeur de paragraphe */
+  background: #fff3cd;
+  padding: 14px 18px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+  vertical-align: top;
+  white-space: normal;        /* permet le retour à la ligne */
+}
+
+
 

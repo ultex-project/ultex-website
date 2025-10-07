@@ -54,8 +54,8 @@ export default function SolutionsChainSection() {
     ];
 
     return (
-        <section className="py-20 bg-black text-white" ref={containerRef}>
-            <div className="container mx-auto px-6">
+        <section className="py-20 bg-[#11131A] text-white" ref={containerRef}>
+            <div className="container mx-auto px-6 xl:px-24">
                 {/* Section Title */}
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-funnel-display">
                     Des Solutions Adaptées à Votre Chaîne Logistique
@@ -102,51 +102,19 @@ export default function SolutionsChainSection() {
                     {/* Right Column: Sticky Scroll Effect */}
                     <div className="lg:col-span-1">
                         <div
-                            className="sticky top-24 bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl shadow-xl border border-gray-800"
+                            className="relative sticky top-24  p-10 overflow-hidden"
                         >
-                            {/* Top Left Yellow Border Accent */}
-                            <div className="absolute top-0 left-0 w-8 h-0.5 bg-yellow-400"></div>
-                            <div className="absolute top-0 left-0 w-0.5 h-8 bg-yellow-400"></div>
+                            {/* 🔹 SVG background layer */}
+                            <div className="">
+                                <img
+                                    src="/images/solutions-rc-cropped.svg" // 👉 replace with your SVG file path
+                                    alt="background pattern"
 
-                            {/* Content */}
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold mb-2 font-funnel-display text-white">
-                                    Avec ULTEX, Votre Chaîne Import-Export est Maîtrisée, du Sourcing à la Livraison.
-                                </h3>
-
-                                <p className="text-sm text-gray-300 leading-relaxed">
-                                    Du transport opérationnel au conseil stratégique, ULTEX adopte une approche globale et une stratégie qui repose sur l’écoute active, l’analyse des flux et la recherche de performance durable.
-                                </p>
-
-                                <p className="text-sm text-gray-300 leading-relaxed">
-                                    Chaque prestation est pensée comme une solution intégrée, adaptée aux réalités terrain de chaque client. Nous croyons en une logistique intelligente, agile et conçue pour accompagner la croissance de votre activité.
-                                </p>
-
-                                {/* Button + Link */}
-                                <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
-                                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-                                        Solutions et Services
-                                    </button>
-                                    <div className="text-xs text-gray-400">E-Logistics ...</div>
-                                </div>
-                            </div>
-
-                            {/* Optional: Subtle Animated Lines */}
-                            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 pointer-events-none">
-                                <div className="w-full h-full relative">
-                                    <div className="absolute top-0 left-0 w-px h-full bg-blue-500 opacity-30 animate-pulse"></div>
-                                    <div
-                                        className="absolute top-0 right-0 w-px h-full bg-blue-500 opacity-30 animate-pulse"
-                                        style={{ animationDelay: "1s" }}
-                                    ></div>
-                                    <div
-                                        className="absolute bottom-0 left-0 w-full h-px bg-blue-500 opacity-30 animate-pulse"
-                                        style={{ animationDelay: "2s" }}
-                                    ></div>
-                                </div>
+                                />
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
