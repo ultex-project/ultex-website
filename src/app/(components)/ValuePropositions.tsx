@@ -100,44 +100,46 @@ export default function ValuePropositions() {
                             transition={{ delay: 0.1, duration: 0.5 }}
                             className="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all bg-black"
                         >
-                            {/* Background image */}
+                            {/* Background video */}
                             <div className="relative h-[420px] w-full">
+                                {/* Vidéo de fond */}
+                                <video
+                                    aria-hidden
+                                    className="absolute inset-0 w-full h-full object-cover object-[50%_60%] motion-reduce:hidden"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    poster="/images/global-map-poster.jpg"
+                                >
+                                    <source src="/videos/global-map.webm" type="video/webm" />
+                                    <source src="/videos/global-map.mp4" type="video/mp4" />
+                                </video>
+
+                                {/* Fallback image si reduce-motion ou si la vidéo ne charge pas */}
                                 <Image
-                                    src={cards[1].image}
-                                    alt={cards[1].title}
+                                    src="/images/global-map-poster.jpg"
+                                    alt=""
                                     fill
-                                    className="object-cover"
                                     priority
+                                    className="object-cover hidden motion-reduce:block"
                                 />
 
-                                {/* Dark gradient + dotted mask for depth */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80" />
-                                <div
-                                    className="absolute inset-0 opacity-[0.15] pointer-events-none"
-                                    style={{
-                                        backgroundImage:
-                                            "radial-gradient(currentColor 1px, transparent 1px)",
-                                        backgroundSize: "12px 12px",
-                                        color: "white",
-                                    }}
-                                />
 
-                                {/* Thin gold edge accent */}
+                                {/* Liseré doré fin */}
                                 <div className="absolute inset-0 rounded-2xl ring-1 ring-yellow-400/30" />
 
-                                {/* CONTENT OVERLAY */}
+                                {/* CONTENU OVERLAY (inchangé) */}
                                 <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
-                                    {/* Headline */}
-                                    <h3 className="text-white text-3xl md:text-4xl  leading-snug font-funnel-display max-w-3xl">
+                                    <h3 className="text-white text-3xl md:text-4xl leading-snug font-funnel-display max-w-3xl">
                                         Optimisez Vos Flux Logistiques et
                                         <br className="hidden sm:block" />
                                         Exploitez les Opportunités du
                                         <br className="hidden sm:block" />
-                                        Marché Mondial Avec{" "}
-                                        <span className="text-yellow-400">ULTEx</span>.
+                                        Marché Mondial Avec <span className="text-yellow-400">ULTEx</span>.
                                     </h3>
 
-                                    {/* CTA bottom-left */}
                                     <div className="flex items-center gap-3">
                                         <a
                                             href="/contact"
