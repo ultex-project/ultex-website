@@ -1,9 +1,12 @@
 // src/app/resources/[slug]/page.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/app/(components)/Header";
 import Footer from "@/app/(components)/Footer";
+import { useParams, useRouter } from "next/navigation";
 
 type Resource = {
   slug: string;
@@ -78,13 +81,12 @@ function getResourceBySlug(slug: string) {
   return RESOURCES.find((r) => r.slug === slug);
 }
 
-export default function ResourceDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const resource = getResourceBySlug(params.slug);
-  if (!resource) return notFound();
+export default function ResourceDetailPage() {
+   const { slug } = useParams<{ slug: string }>();
+   const router = useRouter();
+  const s = Array.isArray(slug) ? slug[0] : slug;
+  const resource = getResourceBySlug(s);
+    if (!resource) { router.replace("/not-found"); return null; }
 
   const { title, intro, category, categories, tags, image, content } = resource;
 
