@@ -1,4 +1,5 @@
 // src/components/TestimonialsTicker.tsx
+/* @typescript-eslint/no-explicit-any */
 "use client";
 
 import { motion } from "framer-motion";

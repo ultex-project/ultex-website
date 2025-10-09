@@ -1,4 +1,5 @@
 // src/components/StatsBand.tsx
+/* @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
@@ -70,8 +71,7 @@ export default function StatsBand({
             tightGaps ? "gap-2 md:gap-3" : "gap-5 md:gap-6",
           ].join(" ")}
           style={
-                {
-                  ["--card" as string]: `${cardSize}px`,
+                {["--card" as string]: `${cardSize}px`,
                  ["--card-md" as string]: `${cardSizeMd}px`,
                  ["--card-scale" as string]: String(cardHoverScale),
                  ["--card-dur" as string]: `${cardHoverDurationMs}ms`,
