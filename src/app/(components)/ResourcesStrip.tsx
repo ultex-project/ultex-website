@@ -22,7 +22,7 @@ type Props = {
 
 export default function ResourcesStrip({
                                            items,
-                                           worldMapSrc = '/images/world-map.svg',
+                                           worldMapSrc = '/images/footer-bg.svg',
                                            cardWidth = 280,
                                            reserveLeftPx = 150,
                                            className = '',

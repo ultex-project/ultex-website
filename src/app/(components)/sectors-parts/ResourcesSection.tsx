@@ -49,7 +49,7 @@ export default function ResourcesSection() {
             <div className="absolute left-0 top-0 bottom-0 hidden lg:flex items-center z-[1]">
                 {/* ajuste la largeur/position selon ton visuel */}
                 <img
-                    src="/images/world-map.svg"
+                    src="/images/footer-bg.svg"
                     alt="World map"
                     className="max-h-[520px] w-auto opacity-90 -ml-4"
                 />
