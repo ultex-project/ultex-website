@@ -75,11 +75,8 @@ export default function TestimonialsTicker({
     <div
       className={`relative group overflow-hidden ${className}`}
       style={
-        {
-          // CSS vars for animation + mask edges
-          ["--duration" as any]: `${durationSec}s`,
-        } as React.CSSProperties
-      }
+             { ["--duration" as string]: `${durationSec}s` } as React.CSSProperties
+           }
     >
       {/* Edge fade (nice TV band feel) */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-16 bg-gradient-to-r from-[#11131A] to-transparent" />

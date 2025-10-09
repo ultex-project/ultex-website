@@ -1,12 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import SectorCard from "@/app/(components)/SectorCard";
 import { motion } from "framer-motion";
 import MarketPresenceSection from "@/app/(components)/sectors-parts/MarketPresenceSection";
-import ResourcesSection from "@/app/(components)/sectors-parts/ResourcesSection";
-import SectorGridPanel from "@/app/(components)/SectorGridPanel";
-import QuoteCard from "@/app/(components)/QuoteCard";
 import { useRef } from "react";
 import SectorsSplitSection from "@/app/(components)/SectorsSplitSection";
 import StatsBand from "@/app/(components)/StatsBand";

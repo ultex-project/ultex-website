@@ -4,7 +4,6 @@
 import Image from "next/image";
 import QuoteCard from "@/app/(components)/QuoteCard";
 import InfoButton from "@/app/(components)/InfoButton";
-import DeleteBackwardButton from "@/app/(components)/DeleteBackwardButton";
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
 
 export default function PasserelleSection() {
@@ -21,9 +20,9 @@ export default function PasserelleSection() {
         {/* Subheading */}
         <p className="text-center text-gray-600 max-w-4xl mx-auto mb-12">
           ULTEX accompagne les entreprises marocaines et étrangères dans leurs
-          opérations logistiques et commerciales à l'import <br /> comme à
-          l'export. Notre savoir-faire repose sur la rigueur, la réactivité et
-          une maîtrise des réglementations douanières et <br /> des chaînes
+          opérations logistiques et commerciales à l&apos;import <br /> comme à
+          l&apos;export Notre savoir-faire repose sur la rigueur, la réactivité
+          et une maîtrise des réglementations douanières et <br /> des chaînes
           logistiques.
         </p>
 

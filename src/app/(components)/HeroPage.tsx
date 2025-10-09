@@ -16,7 +16,6 @@ export default function HeroPage({
   bgSrc = "/images/solutions-hero.jpg",
   eyebrow = "À Propos",
   title = "ULTex",
-  children,
 }: HeroAboutProps) {
   return (
     <section className="relative bg-[#050A12] text-white overflow-hidden">

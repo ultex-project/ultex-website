@@ -52,11 +52,12 @@ export default function SectorGridPanel({
         priority={priority}
         className={`object-cover transform-gpu scale-100
           ${hoverZoom ? "transition-transform ease-out will-change-transform origin-center motion-safe:group-hover:scale-[var(--bg-scale)]" : ""}`}
-        style={{
-          // Tailwind accepte les valeurs arbitraires avec var()
-          ["--bg-scale" as any]: hoverScale,
-          transitionDuration: `${hoverDurationMs}ms`,
-        }}
+        style={
+          {
+            ["--bg-scale" as string]: String(hoverScale),
+            transitionDuration: `${hoverDurationMs}ms`,
+          } as React.CSSProperties
+        }
       />
 
       {/* FX layers (restent fixes pendant le zoom du BG) */}

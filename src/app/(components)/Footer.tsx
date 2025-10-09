@@ -35,8 +35,8 @@ export default function Footer() {
               <p className="mt-4 text-sm text-gray-400">
                 Acteur marocain stratégique en logistique et import-export,
                 ULTEX déploie une présence active en Chine, en Turquie et dans
-                d'autres hubs clés pour dynamiser vos projets à l'échelle
-                mondiale.
+                d&apos;autres hubs clés pour dynamiser vos projets à
+                l&apos;échelle mondiale.
               </p>
             </div>
 

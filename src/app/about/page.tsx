@@ -1,8 +1,5 @@
 // src/app/events/page.tsx
-import EventsSection from "@/app/(components)/EventsSection";
 import Footer from "@/app/(components)/Footer";
-import Header from "@/app/(components)/Header";
-import Image from "next/image";
 import ValuePropositions from "@/app/(components)/ValuePropositions";
 import PasserelleSection from "@/app/(components)/PasserelleSection";
 import ServiceFlowSection from "@/app/(components)/ServiceFlowSection";

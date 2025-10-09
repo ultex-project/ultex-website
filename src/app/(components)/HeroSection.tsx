@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
 import Header from "@/app/(components)/Header";
 
 export default function HeroSection() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => setIsLoaded(true), []);
 
   return (
     <section className="relative text-white overflow-hidden min-h-screen flex flex-col">

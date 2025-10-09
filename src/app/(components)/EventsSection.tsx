@@ -1,8 +1,6 @@
 // src/app/(components)/EventsSection.tsx
 "use client";
 
-import Header from "@/app/(components)/Header";
-
 type EventItem = {
   id: string;
   title: string;

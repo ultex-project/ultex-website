@@ -70,13 +70,13 @@ export default function StatsBand({
             tightGaps ? "gap-2 md:gap-3" : "gap-5 md:gap-6",
           ].join(" ")}
           style={
-            {
-              ["--card" as any]: `${cardSize}px`,
-              ["--card-md" as any]: `${cardSizeMd}px`,
-              ["--card-scale" as any]: cardHoverScale,
-              ["--card-dur" as any]: `${cardHoverDurationMs}ms`,
-            } as React.CSSProperties
-          }
+                {
+                  ["--card" as string]: `${cardSize}px`,
+                 ["--card-md" as string]: `${cardSizeMd}px`,
+                 ["--card-scale" as string]: String(cardHoverScale),
+                 ["--card-dur" as string]: `${cardHoverDurationMs}ms`,
+               } as React.CSSProperties
+             }
         >
           {stats.map((s, i) => (
             <motion.div
