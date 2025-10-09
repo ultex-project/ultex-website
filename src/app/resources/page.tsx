@@ -4,7 +4,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Header from "@/app/(components)/Header";
 import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
 

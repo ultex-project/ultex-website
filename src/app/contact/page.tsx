@@ -3,8 +3,6 @@
 
 import { useState } from "react";
 import Footer from "@/app/(components)/Footer";
-import Header from "@/app/(components)/Header";
-import Image from "next/image";
 import QuoteCard from "@/app/(components)/QuoteCard";
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
 import HeroPage from "@/app/(components)/HeroPage";

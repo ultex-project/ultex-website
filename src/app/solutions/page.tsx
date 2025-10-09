@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Header from "@/app/(components)/Header";
 import Footer from "@/app/(components)/Footer";
 import QuoteCard from "@/app/(components)/QuoteCard";
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";

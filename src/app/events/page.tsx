@@ -1,8 +1,6 @@
 // src/app/events/page.tsx
 import EventsSection from "@/app/(components)/EventsSection";
 import Footer from "@/app/(components)/Footer";
-import Header from "@/app/(components)/Header";
-import Image from "next/image";
 import HeroPage from "@/app/(components)/HeroPage";
 
 export const metadata = {
