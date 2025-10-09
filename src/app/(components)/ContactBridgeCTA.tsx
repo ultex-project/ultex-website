@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ContactBridgeCTA() {
     return (
-        <div className="relative py-16 md:py-20  text-white overflow-hidden">
+        <div className="relative py-16 md:py-20 text-white overflow-hidden">
             {/* subtle background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div

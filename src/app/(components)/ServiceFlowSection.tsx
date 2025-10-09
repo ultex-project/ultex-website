@@ -30,7 +30,7 @@ export default function ServiceFlowSection() {
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-[#04050F] to-[#090B1A] text-white">
+        <section className="py-20 bg-[#11131A] text-white">
             <div className="container mx-auto px-6">
                 {/* Main Flow */}
                 <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
@@ -51,43 +51,40 @@ export default function ServiceFlowSection() {
                         {steps.map((step, index) => (
                             <motion.div
                                 key={step.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ delay: index * 0.15, duration: 0.6 }}
-                                className="relative overflow-visible flex-1 lg:max-w-[400px] lg:-mr-28 lg:last:mr-0"
+                                initial={{opacity: 0, y: 50}}
+                                whileInView={{opacity: 1, y: 0}}
+                                viewport={{once: true, amount: 0.3}}
+                                transition={{delay: index * 0.15, duration: 0.6}}
+                                className="relative flex-1 lg:max-w-[400px] rounded-2xl overflow-hidden" // ← clip inside
                             >
-                                {/* 🔵 Arrow background (en dehors du card) */}
+                                {/* Arrow as a background layer INSIDE the card */}
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-y-0 left-0 right-[-7rem] hidden lg:block pointer-events-none overflow-visible z-0"
+                                    className="absolute inset-0 z-0 hidden lg:block pointer-events-none"
                                 >
+                                    {/* Option A: as img */}
                                     <img
                                         src="/images/arrow-step.svg"
                                         alt=""
-                                        className="w-full h-full object-cover object-left select-none"
+                                        className="absolute right-0 top-0 h-full w-auto opacity-90 select-none"
                                         draggable={false}
                                     />
+                                    {/* Option B (lighter): as CSS bg image
+    <div className="absolute inset-0 bg-[url('/images/arrow-step.svg')] bg-no-repeat bg-right bg-contain opacity-90" />
+    */}
                                 </div>
 
-                                {/* 🔷 Card contenu (au-dessus de la flèche) */}
-                                <div className="relative z-10 flex h-full min-h-[210px] flex-col gap-6 rounded-2xl  px-8 py-10  lg:px-10">
-                                    {/* Mobile fallback (pas de grande flèche sur mobile) */}
-                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#131E32]/95 via-[#0E1626]/85 to-[#070D18]/80 lg:hidden" />
+                                {/* Content (over the arrow) */}
+                                <div
+                                    className="relative z-10 flex h-full min-h-[210px] flex-col gap-6 rounded-2xl px-8 py-10 lg:px-10">
+                                    {/* Keep a subtle gradient for readability on all sizes (tuned to let arrow show) */}
+                                    <div
+                                        className="absolute inset-0 rounded-2xl "/>
                                     <div className="relative z-10 flex flex-col gap-4 lg:max-w-[280px]">
-                                        <Image
-                                            src={step.icon}
-                                            alt={step.title}
-                                            width={48}
-                                            height={48}
-                                            className="h-12 w-12"
-                                        />
-                                        <h3 className="text-xl font-semibold text-white">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-sm leading-relaxed text-gray-300">
-                                            {step.description}
-                                        </p>
+                                        <Image src={step.icon} alt={step.title} width={48} height={48}
+                                               className="h-12 w-12"/>
+                                        <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                                        <p className="text-sm leading-relaxed text-gray-300">{step.description}</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -97,14 +94,14 @@ export default function ServiceFlowSection() {
 
                 {/* Footer Text */}
                 <div className="mt-16 text-center">
-                    <div className="inline-flex items-center gap-3 text-sm text-gray-400">
-                        <span className="inline-block h-10 w-[2px] bg-sky-400/60" />
-                        <span className="max-w-2xl text-left leading-relaxed">
-              Transformez Vos Défis Logistiques en Leviers de Croissance Grâce
-              aux Solutions ULTEX.
-            </span>
+                    <div className="inline-flex items-center  gap-3 text-meduim text-gray-400">
+                        <img src={"/images/cursor.svg"}
+                             className={"inline-block h-10 text-white relative top-[-9px] left-[-7px]"}/>
+                        Transformez Vos Défis Logistiques en Leviers <br/> de Croissance Grâce
+                        aux Solutions ULTEX.
+
                     </div>
-                    <h3 className="mt-6 text-2xl font-semibold">Contactez Nos Experts</h3>
+                    <h3 className="mt-6 text-2xl text-white font-semibold">Contactez Nos Experts</h3>
                 </div>
             </div>
         </section>

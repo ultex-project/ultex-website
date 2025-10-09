@@ -3,7 +3,7 @@
 
 export default function MarketPresenceSection() {
     return (
-            <div className="mt-5">
+            <div className="my-5">
                 {/* Heading */}
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 max-w-5xl font-funnel-display">
                     Profitez de Notre Présence Sur les Marchés Stratégiques et

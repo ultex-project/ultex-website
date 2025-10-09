@@ -5,9 +5,9 @@ import ContactBridgeCTA from "@/app/(components)/ContactBridgeCTA";
 
 export default function Footer() {
     return (
-        <footer className="bg-black text-white pt-12 pb-6">
+        <footer className="bg-[#11131A] d text-white pt-12 pb-6">
             <ContactBridgeCTA/>
-            <div className="container mx-auto px-6">
+            <div className="container mt-[200px] px-6 xl:px-24">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <Image src="/images/logo.svg" alt="ULTEX Logo" width={150} height={50} />
@@ -15,7 +15,7 @@ export default function Footer() {
                             Acteur marocain stratégique en logistique et import-export, ULTEX déploie une présence active en Chine, en Turquie et dans d'autres hubs clés pour dynamiser vos projets à l'échelle mondiale.
                         </p>
                     </div>
-                    <div>
+                    <div >
                         <h4 className="font-bold mb-4">Accès Rapide</h4>
                         <ul className="space-y-2 text-sm">
                             <li><Link href="/">Accueil</Link></li>
@@ -42,7 +42,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <div className="border-t border-gray-800 mt-[200px] pt-6 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-sm text-gray-400">ULTEX © 2025 - Tous droits réservés.</p>
                     <p className="text-sm text-gray-400 mt-2 md:mt-0">Réalisation: © OneWeb</p>
                 </div>

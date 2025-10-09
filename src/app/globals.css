@@ -46,5 +46,38 @@ h1, h2, h3, .font-funnel-display {
   white-space: normal;        /* permet le retour à la ligne */
 }
 
+/* Le conteneur qui s'efface */
+.deleter {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* Lance l'animation (le timingFunction est injecté inline en JSX) */
+  animation-name: delete-steps;
+  animation-duration: var(--duration, 1500ms);
+  animation-fill-mode: forwards; /* reste à 0ch à la fin */
+  line-height: 2.25rem; /* ajuste pour matcher text-2xl (~2rem-2.25rem) */
+}
+
+/* Le curseur: image collée au bord droit de la largeur animée */
+.deleter::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.15em;             /* léger dépassement pour couvrir la bordure */
+  transform: translateY(-50%);
+  width: 1.25em;              /* ajuste à la taille de ton SVG */
+  height: 1.25em;
+  background-image: url("/images/cursor.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* Animation: on réduit la largeur jusqu'à 0ch */
+@keyframes delete-steps {
+  to { width: 0ch; }
+}
 
 

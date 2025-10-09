@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import QuoteCard from "@/app/(components)/QuoteCard";
 import InfoButton from "@/app/(components)/InfoButton";
+import DeleteBackwardButton from "@/app/(components)/DeleteBackwardButton";
+import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
 
 export default function PasserelleSection() {
     return (
@@ -59,13 +61,20 @@ export default function PasserelleSection() {
                         <QuoteCard text={"Fondée pour répondre aux besoins logistiques et commerciaux des entreprises, ULTEX allie expertise métier et technologie afin de garantir des prestations optimisées et conformes. Nous     anticipons les contraintes douanières et les enjeux sectoriels, et innovons pour accélérer la croissance locale et internationale de nos clients, grâce à des solutions adaptées et évolutives."}/>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <div className="flex w-full flex-col sm:flex-row items-center gap-4 pt-5">
                             <InfoButton text={"PLUS D'INFO"}/>
-                            <button className="text-gray-500 hover:text-gray-700 font-medium flex items-center gap-2">
-                                <div className="w-1 h-6 bg-gray-300"></div>
-                                Meilleure solution
-                            </button>
+
+                            {/* Pousse l'anim tout à droite */}
+                            <div className="self-end sm:self-auto sm:ml-auto">
+                                <DeleteWithMovingCursor
+                                    text="Meilleure solution"
+                                    mode="delete"
+                                    stepMs={90}
+                                    loop
+                                />
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

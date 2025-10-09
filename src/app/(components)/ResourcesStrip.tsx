@@ -1,0 +1,106 @@
+// src/app/(components)/ResourcesStrip.tsx
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+export type Resource = {
+    title: string;
+    excerpt: string;
+    image: string;
+    href: string;
+};
+
+type Props = {
+    items: Resource[];                 // expect 3
+    worldMapSrc?: string;              // left SVG
+    cardWidth?: number;                // px – makes cards smaller (default 280)
+    reserveLeftPx?: number;            // px – space for the map on lg+ (default 320)
+    className?: string;
+};
+
+export default function ResourcesStrip({
+                                           items,
+                                           worldMapSrc = '/images/world-map.svg',
+                                           cardWidth = 280,
+                                           reserveLeftPx = 150,
+                                           className = '',
+                                       }: Props) {
+    return (
+        <section className={`relative overflow-visible ${className}`}>
+
+            {/* Left world map */}
+            <div className="absolute left-0 top-0 bottom-0 hidden lg:flex items-center z-[1] pointer-events-none">
+                <img
+                    src={worldMapSrc}
+                    alt="World map"
+                    className="max-h-[520px] w-auto opacity-95 -ml-2"
+                />
+            </div>
+
+            {/* Cards grid (reserve space for the map on lg+) */}
+            <div
+                className="container mx-auto px-6 lg:px-12 relative z-10"
+                style={{ paddingLeft: reserveLeftPx }} // leaves room for the map
+            >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+                    {items.slice(0, 3).map((r, i) => (
+                        <motion.article
+                            key={r.href}
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.5, delay: i * 0.08 }}
+                            className="rounded-[18px] overflow-hidden bg-white border border-[#C7D3E1] shadow-[0_20px_40px_-24px_rgba(2,6,23,0.25)] flex flex-col"
+                            style={{ width: cardWidth }}
+                        >
+                            {/* Smaller/taller media but overall compact card */}
+                            <div className="relative h-44 md:h-56">
+                                <Image
+                                    src={r.image}
+                                    alt={r.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(min-width: 400px) 53vw, 100vw"
+                                    priority={i === 0}
+                                />
+                                {/* dotted overlay on the left */}
+                                <div className="pointer-events-none absolute inset-y-0 left-0 w-2/5 opacity-80
+                                [mask-image:linear-gradient(to_right,black,transparent)]
+                                [background:radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.9)_1.2px,transparent_1.6px)]
+                                [background-size:10px_10px]" />
+                            </div>
+
+                            <div className="px-4 pt-5 pb-5 flex-1 flex flex-col">
+                                <h3 className="text-center text-[16px] md:text-[17px] font-bold text-gray-900 leading-snug">
+                                    {r.title}
+                                </h3>
+                                <p className="mt-2 text-center text-sm text-gray-600 leading-relaxed line-clamp-3">
+                                    {r.excerpt}
+                                </p>
+
+                                <div className="mt-auto pt-4 flex justify-center">
+                                    <Link
+                                        href={r.href}
+                                        className="inline-flex items-center gap-3 rounded-2xl border-2 border-blue-600/90
+                               px-4 py-2.5 text-blue-700 font-semibold hover:bg-blue-50
+                               shadow-sm transition"
+                                    >
+                    <span className="inline-grid place-items-center size-7 rounded-lg bg-blue-600 text-white">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M9 18l6-6-6-6" />
+                        <path d="M3 12h12" />
+                      </svg>
+                    </span>
+                                        PLUS D&apos;INFO
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.article>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
