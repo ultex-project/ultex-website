@@ -7,14 +7,14 @@ export default function Footer() {
     return (
         <footer className="relative overflow-hidden bg-[#11131A] w-full text-white pt-12 pb-6">
             {/* Centered background image */}
-            <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+            <div className=" absolute inset-0 z-0 flex items-center justify-center">
                 <Image
                     src="/images/footer-bg.svg"        // <-- your centered bg image
                     alt=""
                     width={900}                         // size you want (scales down on small screens)
                     height={900}
                     sizes="(min-width:1024px) 900px, 80vw"
-                    className="opacity-20 object-contain max-w-[90vw] md:max-w-[70vw]"
+                    className="rotate-90 object-contain max-w-[50vw] md:max-w-[40vw]"
                     priority={false}
                 />
             </div>

@@ -72,6 +72,7 @@ export default function SolutionsChainSection() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 place-items-center">
                         {cards.map((card, index) => (
                             <div
+                                key={index}
                                 className="group relative w-[240px] sm:w-[260px] md:w-[280px]
                        overflow-hidden rounded-xl ring-1 ring-white/10
                        bg-[#0B0F17] hover:ring-white/20 hover:shadow-xl shadow-[-9px_11px_22px_rgba(1,89,163,0.30)] hover:shadow-cyan-500/10

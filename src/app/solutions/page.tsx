@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Header from "@/app/(components)/Header";
 import Footer from "@/app/(components)/Footer";
+import QuoteCard from "@/app/(components)/QuoteCard";
+import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
 
 type BlockProps = {
     title: string;
@@ -57,35 +59,29 @@ function SolutionBlock({
 
                 {/* Text */}
                 <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    initial={{opacity: 0, y: 24}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true, amount: 0.3}}
                     className={`${isLeft ? "" : "lg:order-1"}`}
                 >
-                    <h3 className="text-2xl font-extrabold text-gray-900 leading-tight">
+                    <h3 className="text-4xl  font-extrabold text-gray-900 leading-tight">
                         {title}
                         {subtitle && (
                             <>
-                                <br />
+                                <br/>
                                 <span className="font-semibold">{subtitle}</span>
                             </>
                         )}
                     </h3>
-
-                    {/* Yellow note with dots like your mock */}
-                    <div className="relative mt-4 bg-yellow-100 border-l-4 border-yellow-400 p-4 rounded-md text-gray-800">
-                        {/* dots */}
-                        <span className="absolute -left-3 top-4 w-2.5 h-2.5 rounded-full bg-gray-800" />
-                        <span className="absolute -right-3 bottom-4 w-2.5 h-2.5 rounded-full bg-gray-800" />
-                        <p className="leading-relaxed">{note}</p>
+                    <div className={"mt-[40px]"}>
+                        <QuoteCard text={note}/>
                     </div>
-
                     {/* Bullets */}
                     {bullets.length > 0 && (
-                        <ul className="mt-5 space-y-2 text-gray-700">
+                        <ul className="mt-5 space-y-2 mb-5 text-gray-700">
                             {bullets.map((b, i) => (
                                 <li key={i} className="flex gap-3">
-                                    <span className="mt-2 h-[3px] w-6 bg-gray-300 inline-block" />
+                                    <span className="mt-2 h-2 w-2 rounded-full bg-gray-300 inline-block"/>
                                     <span>{b}</span>
                                 </li>
                             ))}
@@ -93,9 +89,12 @@ function SolutionBlock({
                     )}
 
                     {/* Subtle helper link under bullets */}
-                    <button className="mt-4 text-sm text-gray-500 hover:text-gray-700">
-                        Meilleure solution
-                    </button>
+                    <DeleteWithMovingCursor
+                        text="Meilleure solution"
+                        mode="delete"
+                        stepMs={90}
+                        loop
+                    />
                 </motion.div>
             </div>
         </section>
@@ -166,7 +165,7 @@ export default function SolutionsPage() {
                         align="left"
                         title="Sourcing"
                         subtitle="et Relation Fournisseurs"
-                        image="/images/solution-sourcing.jpg" // replace with your asset
+                        image="/images/solution-sourcing.svg" // replace with your asset
                         imageAlt="Sourcing"
                         note="ULTEx identifie, évalue et sélectionne les fournisseurs les plus fiables et adaptés à vos besoins, afin de garantir la qualité, la conformité et la compétitivité de vos approvisionnements. Nous gérons les négociations, contrôlons les standards et optimisons les délais pour sécuriser vos partenariats stratégiques."
                         bullets={[
@@ -180,7 +179,7 @@ export default function SolutionsPage() {
                         align="right"
                         title="Contrôle Qualité"
                         subtitle="et Conformité"
-                        image="/images/solution-quality.jpg"
+                        image="/images/solution-quality.svg"
                         imageAlt="Contrôle qualité"
                         note="Nous assurons un contrôle rigoureux de la qualité de vos produits tout au long du processus d’import-export, en veillant à leur conformité avec les normes nationales et internationales. Des inspections sur-mesure, sur vos organisations et vos exigences spécifiques."
                         bullets={[
@@ -194,7 +193,7 @@ export default function SolutionsPage() {
                         align="left"
                         title="Sourcing"
                         subtitle="et Relation Fournisseurs"
-                        image="/images/solution-sourcing.jpg" // replace with your asset
+                        image="/images/solution-sourcing.svg" // replace with your asset
                         imageAlt="Sourcing"
                         note="ULTEx identifie, évalue et sélectionne les fournisseurs les plus fiables et adaptés à vos besoins, afin de garantir la qualité, la conformité et la compétitivité de vos approvisionnements. Nous gérons les négociations, contrôlons les standards et optimisons les délais pour sécuriser vos partenariats stratégiques."
                         bullets={[
@@ -208,7 +207,7 @@ export default function SolutionsPage() {
                         align="right"
                         title="Contrôle Qualité"
                         subtitle="et Conformité"
-                        image="/images/solution-quality.jpg"
+                        image="/images/solution-quality.svg"
                         imageAlt="Contrôle qualité"
                         note="Nous assurons un contrôle rigoureux de la qualité de vos produits tout au long du processus d’import-export, en veillant à leur conformité avec les normes nationales et internationales. Des inspections sur-mesure, sur vos organisations et vos exigences spécifiques."
                         bullets={[
@@ -221,7 +220,7 @@ export default function SolutionsPage() {
                         align="left"
                         title="Sourcing"
                         subtitle="et Relation Fournisseurs"
-                        image="/images/solution-sourcing.jpg" // replace with your asset
+                        image="/images/solution-sourcing.svg" // replace with your asset
                         imageAlt="Sourcing"
                         note="ULTEx identifie, évalue et sélectionne les fournisseurs les plus fiables et adaptés à vos besoins, afin de garantir la qualité, la conformité et la compétitivité de vos approvisionnements. Nous gérons les négociations, contrôlons les standards et optimisons les délais pour sécuriser vos partenariats stratégiques."
                         bullets={[
@@ -235,7 +234,7 @@ export default function SolutionsPage() {
                         align="right"
                         title="Contrôle Qualité"
                         subtitle="et Conformité"
-                        image="/images/solution-quality.jpg"
+                        image="/images/solution-quality.svg"
                         imageAlt="Contrôle qualité"
                         note="Nous assurons un contrôle rigoureux de la qualité de vos produits tout au long du processus d’import-export, en veillant à leur conformité avec les normes nationales et internationales. Des inspections sur-mesure, sur vos organisations et vos exigences spécifiques."
                         bullets={[
