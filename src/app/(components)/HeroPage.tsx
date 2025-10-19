@@ -13,12 +13,12 @@ type HeroAboutProps = PropsWithChildren<{
 }>;
 
 export default function HeroPage({
-  bgSrc = "/images/solutions-hero.jpg",
+  bgSrc = "/images/solutions-hero.png",
   eyebrow = "À Propos",
   title = "ULTex",
 }: HeroAboutProps) {
   return (
-    <section className="relative bg-[#050A12] text-white overflow-hidden">
+    <section className="relative flex min-h-[60vh] flex-col overflow-hidden bg-[#050A12] text-white">
       {/* Header au-dessus du backdrop */}
       <div className="relative z-20">
         <Header />
@@ -31,13 +31,12 @@ export default function HeroPage({
           alt="Bannière ULTex"
           fill
           priority
-          className="object-cover opacity-60"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1A30]/80 via-[#08111D]/70 to-[#050A12]" />
       </div>
 
       {/* Contenu */}
-      <div className="relative z-20 container mx-auto px-6 xl:px-24 py-16">
+      <div className="relative z-20 container mx-auto flex-1 px-6 py-16 xl:px-24">
         <div className="max-w-6xl">
           <div className="">
             <span className="text-lg">{eyebrow}</span>

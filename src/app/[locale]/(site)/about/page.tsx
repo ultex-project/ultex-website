@@ -25,7 +25,7 @@ export default function AboutPage() {
     <main className="bg-white">
       {/* HERO */}
       <HeroPage
-        bgSrc="/images/solutions-hero.jpg"
+        bgSrc="/images/solutions-hero.png"
         eyebrow="À Propos"
         title="ULTex"
       />

@@ -59,8 +59,8 @@ export default function ContactPageClient() {
     <main className="bg-white">
       {/* HERO */}
       <HeroPage
-        bgSrc="/images/solutions-hero.jpg"
-        eyebrow="Resources"
+        bgSrc="/images/contact-page.png"
+        eyebrow="Service Client"
         title="ULTex"
       />
       <section className="py-16 bg-white">

@@ -23,7 +23,7 @@ export default function EventsPage() {
     <main className="bg-white">
       {/* HERO */}
       <HeroPage
-        bgSrc="/images/solutions-hero.jpg"
+        bgSrc="/images/event-page.png"
         eyebrow="Événements"
         title="ULTex"
       />

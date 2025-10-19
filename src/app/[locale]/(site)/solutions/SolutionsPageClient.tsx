@@ -107,7 +107,7 @@ export default function SolutionsPageClient() {
     <main className="bg-white text-gray-900">
       {/* HERO */}
       <HeroPage
-        bgSrc="/images/solutions-hero.jpg"
+        bgSrc="/images/solutions-page.png"
         eyebrow="Solutions"
         title="ULTex"
       />

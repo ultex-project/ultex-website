@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 
 import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
-import { Link } from "@/i18n";
+import InfoButton from "@/app/(components)/InfoButton";
+import { useTranslations } from "next-intl";
 
 type Resource = {
   title: string;
@@ -64,10 +65,12 @@ const items: Resource[] = [
 ];
 
 export default function ResourcesPageClient() {
+  const tCta = useTranslations("sections.cta");
+
   return (
     <main className="bg-white">
       <HeroPage
-        bgSrc="/images/solutions-hero.jpg"
+        bgSrc="/images/ressource-page.png"
         eyebrow="Resources"
         title="ULTex"
       />
@@ -84,7 +87,10 @@ export default function ResourcesPageClient() {
             stratégiques.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            style={{ gridAutoRows: "1fr" }}
+          >
             {items.map((r, i) => (
               <motion.article
                 key={r.href}
@@ -92,9 +98,9 @@ export default function ResourcesPageClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-[0_20px_50px_-25px_rgba(2,6,23,0.25)]"
+                className="flex h-full flex-col overflow-hidden rounded-[18px] border border-[#C7D3E1] bg-white shadow-[0_20px_40px_-24px_rgba(2,6,23,0.25)]"
               >
-                <div className="relative h-54 md:h-76">
+                <div className="relative h-56 md:h-72">
                   <Image
                     src={r.image}
                     alt={r.title}
@@ -111,38 +117,16 @@ export default function ResourcesPageClient() {
                   />
                 </div>
 
-                <div className="px-4 pt-5 pb-5 flex-1 flex flex-col">
-                  <h3 className="text-center text-[16px] md:text-[17px] font-bold text-gray-900 leading-snug">
+                <div className="flex flex-1 flex-col px-4 pb-5 pt-5">
+                  <h3 className="text-balance text-center text-[16px] md:text-[17px] font-bold leading-snug text-gray-900">
                     {r.title}
                   </h3>
-                  <p className="mt-2 text-center text-sm text-gray-600 leading-relaxed line-clamp-3">
+                  <p className="mt-2 line-clamp-3 text-center text-sm leading-relaxed text-gray-600">
                     {r.excerpt}
                   </p>
 
                   <div className="mt-auto pt-4 flex justify-center">
-                    <Link
-                      href={r.href}
-                      className="inline-flex items-center gap-3 rounded-2xl border-2 border-blue-600/90
-                               px-4 py-2.5 text-blue-700 font-semibold hover:bg-blue-50
-                               shadow-sm transition"
-                    >
-                      <span className="inline-grid place-items-center size-7 rounded-lg bg-blue-600 text-white">
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M9 18l6-6-6-6" />
-                          <path d="M3 12h12" />
-                        </svg>
-                      </span>
-                      PLUS D&apos;INFO
-                    </Link>
+                    <InfoButton href={r.href} text={tCta("moreInfo")} />
                   </div>
                 </div>
               </motion.article>

@@ -58,7 +58,10 @@ export default function ResourcesStrip({
         className="container mx-auto px-6 lg:px-12 relative z-10"
         style={paddingStyle}
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          style={{ gridAutoRows: "1fr" }}
+        >
           {items.slice(0, 3).map((r, i) => (
             <motion.article
               key={r.href}
@@ -66,8 +69,8 @@ export default function ResourcesStrip({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-[18px] overflow-hidden bg-white border border-[#C7D3E1] shadow-[0_20px_40px_-24px_rgba(2,6,23,0.25)] flex flex-col"
-              style={{ width: cardWidth }}
+              className="rounded-[18px] overflow-hidden bg-white border border-[#C7D3E1] shadow-[0_20px_40px_-24px_rgba(2,6,23,0.25)] flex h-full w-full flex-col"
+              style={{ maxWidth: cardWidth, width: "100%" }}
             >
               {/* Smaller/taller media but overall compact card */}
               <div className="relative h-44 md:h-56">

@@ -3,7 +3,7 @@
 
 import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n";
+import InfoButton from "@/app/(components)/InfoButton";
 
 export default function ContactBridgeCTA() {
   const tNav = useTranslations("nav");
@@ -35,17 +35,7 @@ export default function ContactBridgeCTA() {
         {/* center button with blue lines */}
         <div className="mt-8 flex items-center justify-center gap-6">
           <span className="hidden sm:block h-[2px] w-32 md:w-64 bg-gradient-to-r from-transparent via-sky-600/70 to-transparent" />
-          <Link
-            href="/contact"
-            className="group rounded-xl border border-sky-600/70 px-5 py-3 font-semibold text-sky-300 hover:text-white hover:border-sky-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
-          >
-            <span className="inline-flex items-center gap-2">
-              <span className="inline-block -translate-x-0.5 transition-transform group-hover:translate-x-0">
-                ➜
-              </span>
-              {tNav("contact")}
-            </span>
-          </Link>
+          <InfoButton href="/contact" text={tNav("contact")} />
           <span className="hidden sm:block h-[2px] w-32 md:w-64 bg-gradient-to-l from-transparent via-sky-600/70 to-transparent" />
         </div>
       </div>
