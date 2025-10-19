@@ -169,20 +169,21 @@ export default function SectorsSection() {
             <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-25   from-gray-80 bg-white to-gray-80 border border-gray-200 shadow-inner" />
 
             {/* le bateau qui “descend puis colle” sous la navbar */}
-            <motion.div
-              ref={shipRef}
-              className="sticky top-0 flex justify-center"
-              style={{ paddingTop: "var(--navbar)", y: shipTranslateY }}
+            <div
+              className="sticky top-0 flex justify-center pt-6"
+              style={{ paddingTop: "var(--navbar)" }}
             >
-              <Image
-                src="/images/ship.svg"
-                alt="Cargo Ship"
-                width={92}
-                height={620}
-                className="object-contain drop-shadow-md"
-                priority
-              />
-            </motion.div>
+              <motion.div ref={shipRef} style={{ y: shipTranslateY }}>
+                <Image
+                  src="/images/ship.svg"
+                  alt="Cargo Ship"
+                  width={92}
+                  height={620}
+                  className="object-contain drop-shadow-md"
+                  priority
+                />
+              </motion.div>
+            </div>
           </div>
 
           {/* RIGHT: cards + text */}
