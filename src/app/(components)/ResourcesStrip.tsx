@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-import { Link } from "@/i18n";
+import InfoButton from "@/app/(components)/InfoButton";
 
 export type Resource = {
   title: string;
@@ -97,30 +97,7 @@ export default function ResourcesStrip({
                 </p>
 
                 <div className="mt-auto pt-4 flex justify-center">
-                  <Link
-                    href={r.href}
-                    className="inline-flex items-center gap-3 rounded-2xl border-2 border-blue-600/90
-                               px-4 py-2.5 text-blue-700 font-semibold hover:bg-blue-50
-                               shadow-sm transition"
-                  >
-                    <span className="inline-grid place-items-center size-7 rounded-lg bg-blue-600 text-white">
-                      <svg
-                        viewBox="0 0 24 24"
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                        style={isRtl ? { transform: "scaleX(-1)" } : undefined}
-                      >
-                        <path d="M9 18l6-6-6-6" />
-                        <path d="M3 12h12" />
-                      </svg>
-                    </span>
-                    {tSections("moreInfo")}
-                  </Link>
+                  <InfoButton href={r.href} text={tSections("moreInfo")} />
                 </div>
               </div>
             </motion.article>

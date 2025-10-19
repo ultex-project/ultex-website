@@ -31,7 +31,7 @@ export default function ServiceFlowSection() {
           {/* Left Illustration */}
           <div className="lg:w-[280px] flex justify-center">
             <Image
-              src="/images/amazing-serving.svg"
+              src="/images/amazing-serving.png"
               alt="Amazing service illustration"
               width={182}
               height={216}

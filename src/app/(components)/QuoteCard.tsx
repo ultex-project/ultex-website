@@ -20,7 +20,7 @@ export default function QuoteCard({ text }: { text: string }) {
             src="/images/cursor.svg"
             alt=""
             className="inline-block rotate-180 h-10 relative"
-            style={{ top: "-9px", marginInlineStart: "-7px" }}
+            style={{ top: "-9px", marginInlineStart: "0px" }}
           />
           {text}
           <img

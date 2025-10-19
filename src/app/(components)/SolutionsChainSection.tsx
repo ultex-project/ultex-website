@@ -126,7 +126,7 @@ export default function SolutionsChainSection() {
             {/*<img src={"/images/solutions-electro.svg"}/>*/}
             <div className="relative sticky top-24 p-4 overflow-hidden">
               <img
-                src="/images/solutions-rc-cropped.svg"
+                src="/images/solutions-rc-cropped.png"
                 alt="background pattern"
                 className="w-full h-auto "
               />
