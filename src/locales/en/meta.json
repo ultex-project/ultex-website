@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "ULTEX - Your e-logistics gateway",
+    "description": "ULTEX powers your international logistics and import-export operations with end-to-end, high-performance solutions.",
+    "ogTitle": "ULTEX | International logistics & import-export",
+    "ogDescription": "From sourcing to delivery, ULTex secures every link of your cross-border supply chain.",
+    "ogImage": "/images/hero-bg.png",
+    "keywords": [
+      "international logistics",
+      "import export Morocco",
+      "customs clearance",
+      "multimodal transport",
+      "supply chain"
+    ]
+  },
+  "routes": {
+    "home": {
+      "title": "ULTEX - Your e-logistics gateway",
+      "description": "Comprehensive logistics services, secure import-export, and tailored support for your global flows.",
+      "ogTitle": "ULTEX | Global logistics experts",
+      "ogDescription": "Optimise your worldwide operations with ULTex: sourcing, transport, customs, warehousing and delivery.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "about": {
+      "title": "About ULTex",
+      "description": "Learn about ULTex's story, values and dedicated team driving your international logistics projects.",
+      "ogTitle": "About ULTex | Logistics specialists",
+      "ogDescription": "A Moroccan team committed to connecting your commercial ambitions with strategic global markets.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "solutions": {
+      "title": "Logistics and import-export solutions",
+      "description": "Integrated offerings covering sourcing, quality control, transport, customs transit and last-mile delivery.",
+      "ogTitle": "ULTex solutions | Tailored supply chain services",
+      "ogDescription": "Secure every stage of your international supply chain with ULTex custom logistics solutions.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "events": {
+      "title": "ULTex events and news",
+      "description": "Follow ULTex at trade shows, forums and professional gatherings dedicated to logistics and supply chain.",
+      "ogTitle": "ULTex events | Logistics forums & trade shows",
+      "ogDescription": "Stay up to date with ULTex news and events focused on logistics, import-export and supply chain innovation.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "resources": {
+      "title": "Logistics resources and market insights",
+      "description": "Guides, studies and practical advice to improve your logistics operations and international commerce.",
+      "ogTitle": "ULTex resources | Supply chain insights",
+      "ogDescription": "Access exclusive ULTex resources to keep a competitive edge across global logistics trends.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "contact": {
+      "title": "Contact ULTex",
+      "description": "Reach out to our logistics experts to launch an import-export project or optimise your global flows.",
+      "ogTitle": "Contact ULTex | Let's discuss your logistics",
+      "ogDescription": "Talk with ULTex for bespoke logistics support and accelerate your international growth.",
+      "ogImage": "/images/hero-bg.png"
+    }
+  }
+}

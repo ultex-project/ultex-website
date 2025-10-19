@@ -3,10 +3,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Footer from "@/app/(components)/Footer";
-import QuoteCard from "@/app/(components)/QuoteCard";
+
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
+import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
+import QuoteCard from "@/app/(components)/QuoteCard";
 
 type BlockProps = {
   title: string;
@@ -101,7 +102,7 @@ function SolutionBlock({
   );
 }
 
-export default function SolutionsPage() {
+export default function SolutionsPageClient() {
   return (
     <main className="bg-white text-gray-900">
       {/* HERO */}

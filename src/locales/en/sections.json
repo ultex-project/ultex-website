@@ -1,0 +1,204 @@
+{
+  "contactBridge": {
+    "title": "Connect your ambitions to the world of trade",
+    "subtitle": "One click is all it takes to launch a high-impact collaboration and boost your global logistics."
+  },
+  "passerelle": {
+    "title": {
+      "line1": "Your logistics gateway",
+      "line2": "To global commerce"
+    },
+    "description": {
+      "line1": "ULTEX supports Moroccan and international companies with import and export logistics and commercial operations.",
+      "line2": "Our know-how is built on rigor, responsiveness and mastery of customs regulations.",
+      "line3": "We secure and optimise every link of your supply chain."
+    },
+    "overlayButtons": {
+      "solutions": "Solutions offers",
+      "elogistics": "E-logistics"
+    },
+    "highlight": {
+      "line1": "Everyone sells",
+      "line2": "services, ULTEX delivers",
+      "line3": "solutions"
+    },
+    "quote": "Created to meet companies' logistics and commercial needs, ULTEX combines business expertise and technology to guarantee optimised and compliant services. We anticipate customs constraints and sector challenges, innovating to speed up the local and international growth of our clients with tailored, scalable solutions.",
+    "infoButton": "More info",
+    "marquee": "Best solution"
+  },
+  "valueProps": {
+    "title": {
+      "line1": "Optimise your logistics flows and seize",
+      "line2": "global market opportunities with <brand>ULTEX</brand>"
+    },
+    "cards": {
+      "reputation": {
+        "title": "Solid reputation",
+        "description": "A reputation built on lasting partnerships, tangible results and mutual trust."
+      },
+      "global": {
+        "title": "Global command",
+        "description": "Teams at your side to manage your end-to-end supply chain anywhere in the world.",
+        "cta": "Book a meeting"
+      },
+      "solutions": {
+        "title": "Integrated solutions",
+        "description": "A complete logistics service chain designed to simplify and optimise your operations."
+      },
+      "expertise": {
+        "title": "Specialised expertise",
+        "description": "Mastery of every process backed by know-how that adapts to your constraints."
+      }
+    }
+  },
+  "serviceFlow": {
+    "steps": {
+      "expert": {
+        "title": "Expert team",
+        "description": "Specialists who understand every aspect of national and international trade and logistics."
+      },
+      "global": {
+        "title": "Global service",
+        "description": "Complete management of the entire logistics process from sourcing to final delivery."
+      },
+      "pricing": {
+        "title": "Tailored pricing",
+        "description": "Flexible, optimised packages that fit your budget without compromising service quality."
+      }
+    },
+    "footer": {
+      "tagline": "Turn your logistics challenges into growth drivers\nwith ULTEX solutions.",
+      "cta": "Talk to our experts"
+    }
+  },
+  "solutionsChain": {
+    "title": "Solutions tailored to your supply chain",
+    "description": "Discover the full range of logistics and import-export solutions delivered by ULTEX for every stage of your value chain.",
+    "cards": {
+      "sourcing": {
+        "title": "Sourcing and supplier relations",
+        "description": "We identify reliable, competitive suppliers aligned with your import requirements."
+      },
+      "quality": {
+        "title": "Quality control and compliance",
+        "description": "We inspect your goods to guarantee compliance with regulations and your quality standards."
+      },
+      "transport": {
+        "title": "Global transport and logistics",
+        "description": "We manage your road, sea and air shipments nationally and internationally."
+      },
+      "storage": {
+        "title": "Storage and inventory management",
+        "description": "We provide secure storage solutions and optimal management of your merchandise flows."
+      },
+      "customs": {
+        "title": "Customs transit and clearance",
+        "description": "We handle customs formalities meticulously for safe, compliant import-export."
+      },
+      "tracking": {
+        "title": "Cargo tracking and delivery",
+        "description": "We ensure real-time tracking and reliable delivery that meets your client expectations."
+      }
+    }
+  },
+  "sectors": {
+    "heading": {
+      "line1": "Cross-sector mastery",
+      "line2": "for your commercial ambitions"
+    },
+    "description": "Our understanding of each industry and its standards allows us to design logistics solutions tailored to every field. ULTEX turns this expertise into a strategic lever to support your growth on global markets.",
+    "list": {
+      "agro": "Agri-food and nutrition",
+      "textile": "Textiles and apparel",
+      "electronics": "Electronics and appliances",
+      "automotive": "Automotive and mechanics",
+      "tech": "Technology and innovation",
+      "cosmetics": "Cosmetics and hygiene"
+    },
+    "split": {
+      "title": "Import-export at the heart of your sector",
+      "quote": "Every industry has its own standards, regulations and logistics specifics. With our versatility, ULTEX operates across strategic sectors with major domestic and international reach. We understand the realities of your industry and adapt our logistics and import-export services to ensure optimal solutions at each stage."
+    },
+    "testimonials": {
+      "heading": {
+        "line1": "Authentic testimonials",
+        "line2": "and lasting relationships"
+      },
+      "description": "Client satisfaction and strong partnerships are central to our approach. The feedback we receive reflects the trust built on the quality of our logistics solutions and the human connection we nurture every day.",
+      "title": "Our clients' voice, our proudest reference"
+    },
+    "testimonialsList": {
+      "ismail": {
+        "name": "S. Ismail",
+        "quote": "The ULTEX team responded to my needs with efficiency and true dedication. A reliable partner from start to finish—highly recommended."
+      },
+      "doha": {
+        "name": "B. Doha",
+        "quote": "ULTEX stayed available and attentive at every stage of our collaboration. Their responsiveness and human touch make all the difference."
+      },
+      "youssef": {
+        "name": "S. Youssef",
+        "quote": "Rigorous execution, on-time deliveries and an engaged team. Thank you ULTEX for the professionalism—keep it up!"
+      }
+    },
+    "resourcesList": {
+      "worldCup": {
+        "title": "World Cup 2030: Impact on Morocco's economy and global transport",
+        "excerpt": "The 2030 World Cup will draw millions and create major logistics opportunities. Here's how to prepare."
+      },
+      "greenFuel": {
+        "title": "Greener marine fuels in Europe: a new opportunity for Morocco",
+        "excerpt": "Morocco positions itself as a key player in the shift to clean marine fuels, opening new cooperation channels."
+      },
+      "customs": {
+        "title": "Customs regulations 2024: what you need to know",
+        "excerpt": "Regulatory changes in 2024 are reshaping import-export practices. Discover the updates to stay compliant."
+      }
+    },
+    "stats": {
+      "clients": "Happy clients",
+      "partners": "Global partners",
+      "operations": "Completed operations",
+      "cancelled": "Cancelled operations"
+    }
+  },
+  "marketPresence": {
+    "heading": {
+      "line1": "Leverage our presence on strategic markets",
+      "line2": "and elevate your trade to excellence"
+    },
+    "subtitle": "Request your quote",
+    "features": {
+      "hubs": {
+        "title": "Strategic hubs",
+        "description": "With local offices and representatives, ULTEX operates in key markets such as China and Turkey."
+      },
+      "partners": {
+        "title": "Certified partners",
+        "description": "A worldwide network of specialised collaborators ensuring quality, compliance and safety at every stage."
+      },
+      "services": {
+        "title": "Secured services",
+        "description": "High-level security protocols to safeguard your products in line with international standards."
+      }
+    }
+  },
+  "resources": {
+    "heading": {
+      "line1": "Reliable resources to",
+      "line2": "learn and progress"
+    },
+    "description": "Stay ahead of logistics and import-export developments. Explore our exclusive resources, market insights and practical advice to optimise your day-to-day operations with rich, up-to-date content built to support your growth.",
+    "cta": "More info"
+  },
+  "events": {
+    "heading": {
+      "line1": "ULTEX participation in trade shows",
+      "line2": "and logistics forums"
+    },
+    "description": "ULTEX is present at major logistics, import-export and international trade events. Through trade shows, forums and professional meetings we expand our presence and network via strategic partnerships."
+  },
+  "cta": {
+    "moreInfo": "More info"
+  }
+}

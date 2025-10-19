@@ -1,0 +1,19 @@
+{
+  "site": {
+    "name": "ULTEX",
+    "tagline": "Logistics expertise without borders"
+  },
+  "language": {
+    "fr": "French",
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "cta": {
+    "bookCall": "Book a consultation",
+    "discover": "Explore our solutions"
+  },
+  "form": {
+    "submit": "Send",
+    "success": "Thanks for reaching out, we'll respond shortly."
+  }
+}

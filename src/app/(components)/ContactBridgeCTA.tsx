@@ -1,9 +1,14 @@
 // src/app/(components)/ContactBridgeCTA.tsx
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n";
 
 export default function ContactBridgeCTA() {
+  const tNav = useTranslations("nav");
+  const tSections = useTranslations("sections.contactBridge");
+
   return (
     <div className="relative py-16 md:py-20 text-white overflow-hidden">
       {/* subtle background */}
@@ -21,11 +26,10 @@ export default function ContactBridgeCTA() {
 
       <div className="container mx-auto px-6 lg:px-12 relative">
         <h2 className="text-3xl md:text-5xl font-bold text-center font-funnel-display">
-          Connectez Vos Ambitions au Monde du Commerce
+          {tSections("title")}
         </h2>
         <p className="mt-3 text-center text-gray-300 max-w-3xl mx-auto">
-          Un seul clic pour démarrer une collaboration performante et booster
-          votre logistique globale.
+          {tSections("subtitle")}
         </p>
 
         {/* center button with blue lines */}
@@ -39,7 +43,7 @@ export default function ContactBridgeCTA() {
               <span className="inline-block -translate-x-0.5 transition-transform group-hover:translate-x-0">
                 ➜
               </span>
-              Rendez-Vous
+              {tNav("contact")}
             </span>
           </Link>
           <span className="hidden sm:block h-[2px] w-32 md:w-64 bg-gradient-to-l from-transparent via-sky-600/70 to-transparent" />

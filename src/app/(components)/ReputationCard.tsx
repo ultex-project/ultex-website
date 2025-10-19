@@ -2,9 +2,11 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 export default function ReputationCard() {
+  const tSections = useTranslations("sections.valueProps.cards.reputation");
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -39,11 +41,10 @@ export default function ReputationCard() {
       {/* Card Content */}
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2 font-funnel-display">
-          Réputation Solide
+          {tSections("title")}
         </h3>
         <p className="text-sm text-gray-600 leading-relaxed">
-          Une réputation fondée sur des partenariats durables, des résultats
-          concrets et une confiance mutuelle.
+          {tSections("description")}
         </p>
       </div>
     </motion.div>

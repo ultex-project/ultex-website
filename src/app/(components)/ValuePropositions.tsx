@@ -2,43 +2,48 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
+import { Link } from "@/i18n";
+
+const baseCards = [
+  {
+    id: 1,
+    key: "reputation",
+    image: "/images/reputation.png",
+  },
+  {
+    id: 2,
+    key: "global",
+    image: "/images/global-map.svg",
+    variant: "dark" as const,
+  },
+  {
+    id: 3,
+    key: "solutions",
+    image: "/images/solutions.svg",
+  },
+  {
+    id: 4,
+    key: "expertise",
+    image: "/images/expertise.svg",
+  },
+] as const;
+
 export default function ValuePropositions() {
-  const cards = [
-    {
-      id: 1,
-      title: "Réputation Solide",
-      description:
-        "Une réputation fondée sur des partenariats durables, des résultats concrets et une confiance mutuelle.",
-      image: "/images/reputation.png", // handshake
-      variant: "light",
-    },
-    {
-      id: 2,
-      title:
-        "Optimisez Vos Flux Logistiques et Exploitez les Opportunités du Marché Mondial Avec ",
-      description: "Make an appointment",
-      image: "/images/global-map.svg",
-      variant: "dark",
-      cta: true,
-    },
-    {
-      id: 3,
-      title: "Solutions Intégrées",
-      description:
-        "Une chaîne de services logistiques complète, conçue pour simplifier et optimiser vos opérations.",
-      image: "/images/solutions.svg",
-      variant: "light",
-    },
-    {
-      id: 4,
-      title: "Expertise Pointues",
-      description:
-        "Une parfaite maîtrise des processus, portée par un savoir-faire qui s’adapte à vos contraintes.",
-      image: "/images/expertise.svg",
-      variant: "light",
-    },
+  const tSections = useTranslations("sections.valueProps");
+  const cards = baseCards.map((card) => ({
+    ...card,
+    title: tSections(`cards.${card.key}.title`),
+    description: tSections(`cards.${card.key}.description`),
+    cta: card.key === "global" ? tSections(`cards.global.cta`) : undefined,
+  }));
+  const titleLines = [
+    tSections("title.line1"),
+    tSections.rich("title.line2", {
+      brand: (chunk) => <span className="text-yellow-400">{chunk}</span>,
+    }),
   ];
 
   return (
@@ -46,9 +51,9 @@ export default function ValuePropositions() {
       <div className="container mx-auto px-6 xl:px-24">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-left mb-12 font-funnel-display">
-          Optimisez Vos Flux Logistiques et Exploitez les{" "}
+          {titleLines[0]}
           <br className="hidden md:block" />
-          Opportunités du Marché Mondial Avec
+          {titleLines[1]}
         </h2>
 
         {/* GRID */}
@@ -132,21 +137,18 @@ export default function ValuePropositions() {
                 {/* CONTENU OVERLAY (inchangé) */}
                 <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
                   <h3 className="text-white text-3xl md:text-4xl leading-snug font-funnel-display max-w-3xl">
-                    Optimisez Vos Flux Logistiques et
+                    {titleLines[0]}
                     <br className="hidden sm:block" />
-                    Exploitez les Opportunités du
-                    <br className="hidden sm:block" />
-                    Marché Mondial Avec{" "}
-                    <span className="text-yellow-400">ULTEx</span>.
+                    {titleLines[1]}
                   </h3>
 
                   <div className="flex items-center gap-3">
-                    <a
+                    <Link
                       href="/contact"
                       className="text-white text-lg font-semibold underline underline-offset-4 hover:opacity-90"
                     >
-                      Make an appointment
-                    </a>
+                      {cards[1].cta}
+                    </Link>
                   </div>
                 </div>
               </div>

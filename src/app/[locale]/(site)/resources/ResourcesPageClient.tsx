@@ -1,11 +1,11 @@
-// src/app/resources/page.tsx
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
+
 import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
+import { Link } from "@/i18n";
 
 type Resource = {
   title: string;
@@ -63,10 +63,9 @@ const items: Resource[] = [
   },
 ];
 
-export default function ResourcesPage() {
+export default function ResourcesPageClient() {
   return (
     <main className="bg-white">
-      {/* HERO */}
       <HeroPage
         bgSrc="/images/solutions-hero.jpg"
         eyebrow="Resources"
@@ -74,7 +73,6 @@ export default function ResourcesPage() {
       />
       <section className="py-14 md:py-16">
         <div className="container mx-auto px-6 lg:px-12">
-          {/* Titre + intro */}
           <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 text-center leading-tight font-funnel-display">
             Participations ULTEx aux Salons et Forums Logistiques
           </h1>
@@ -86,7 +84,6 @@ export default function ResourcesPage() {
             stratégiques.
           </p>
 
-          {/* Grille de cartes */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((r, i) => (
               <motion.article
@@ -97,7 +94,6 @@ export default function ResourcesPage() {
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-[0_20px_50px_-25px_rgba(2,6,23,0.25)]"
               >
-                {/* Smaller/taller media but overall compact card */}
                 <div className="relative h-54 md:h-76">
                   <Image
                     src={r.image}
@@ -107,7 +103,6 @@ export default function ResourcesPage() {
                     sizes="(min-width: 400px) 53vw, 100vw"
                     priority={i === 0}
                   />
-                  {/* dotted overlay on the left */}
                   <div
                     className="pointer-events-none absolute inset-y-0 left-0 w-2/5 opacity-80
                                 [mask-image:linear-gradient(to_right,black,transparent)]

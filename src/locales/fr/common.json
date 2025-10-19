@@ -1,0 +1,19 @@
+{
+  "site": {
+    "name": "ULTEX",
+    "tagline": "L'expertise logistique qui traverse les frontières"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "Anglais",
+    "ar": "Arabe"
+  },
+  "cta": {
+    "bookCall": "Planifier un rendez-vous",
+    "discover": "Découvrir nos solutions"
+  },
+  "form": {
+    "submit": "Envoyer",
+    "success": "Merci pour votre message, nous vous contacterons rapidement."
+  }
+}

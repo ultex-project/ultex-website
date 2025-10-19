@@ -1,35 +1,44 @@
 // src/app/(components)/MarketPresenceSection.tsx
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
+
 export default function MarketPresenceSection() {
+  const tSections = useTranslations("sections.marketPresence");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+
   return (
-    <div className="my-5">
+    <div className={`my-5 ${isRtl ? "text-right" : ""}`}>
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 max-w-5xl font-funnel-display">
-        Profitez de Notre Présence Sur les Marchés Stratégiques et
+        {tSections("heading.line1")}
         <br className="hidden md:block" />
-        Boostez Votre Commerce Vers L&apos;Excellence.
+        {tSections("heading.line2")}
       </h2>
       <p className="mt-2 text-sm font-semibold text-gray-800">
-        Demandez Votre Devis
+        {tSections("subtitle")}
       </p>
 
       {/* Features */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className={`mt-8 grid grid-cols-1 md:grid-cols-3 gap-10 ${isRtl ? "md:text-right" : ""}`}>
         <Feature
           icon={"/icons/hub.svg"}
-          title="Hubs Stratégiques"
-          desc="Grâce à ses antennes et ses représentants locaux, ULTEX intervient sur des marchés clés comme la Chine et la Turquie."
+          title={tSections("features.hubs.title")}
+          desc={tSections("features.hubs.description")}
+          isRtl={isRtl}
         />
         <Feature
           icon={"/icons/partner.svg"}
-          title="Partenaires Certifiés"
-          desc="Un réseau mondial de collaborateurs spécialisés, pour garantir qualité, conformité et sécurité à chaque étape."
+          title={tSections("features.partners.title")}
+          desc={tSections("features.partners.description")}
+          isRtl={isRtl}
         />
         <Feature
           icon={"/icons/services.svg"}
-          title="Services Sécurisés"
-          desc="Des protocoles et des mesures de sécurité élevées pour préserver vos produits dans le respect des normes internationales."
+          title={tSections("features.services.title")}
+          desc={tSections("features.services.description")}
+          isRtl={isRtl}
         />
       </div>
     </div>
@@ -41,17 +50,19 @@ function Feature({
   icon,
   title,
   desc,
+  isRtl,
 }: {
   icon: string;
   title: string;
   desc: string;
+  isRtl: boolean;
 }) {
   return (
-    <div className="flex items-start gap-4">
+    <div className={`flex items-start gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
       <div className="shrink-0">
-        <img src={icon} />
+        <img src={icon} alt="" />
       </div>
-      <div>
+      <div className={isRtl ? "text-right" : ""}>
         <h4 className="text-base font-semibold text-gray-900">{title}</h4>
         <p className="mt-2 text-sm leading-6 text-gray-600">{desc}</p>
       </div>

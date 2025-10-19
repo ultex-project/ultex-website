@@ -1,16 +1,24 @@
-// src/app/events/page.tsx
+import type { Metadata } from "next";
+
 import Footer from "@/app/(components)/Footer";
-import ValuePropositions from "@/app/(components)/ValuePropositions";
+import HeroPage from "@/app/(components)/HeroPage";
 import PasserelleSection from "@/app/(components)/PasserelleSection";
 import ServiceFlowSection from "@/app/(components)/ServiceFlowSection";
 import SolutionsChainSection from "@/app/(components)/SolutionsChainSection";
-import HeroPage from "@/app/(components)/HeroPage";
+import ValuePropositions from "@/app/(components)/ValuePropositions";
+import { buildPageMetadata } from "@/lib/seo";
+import type { AppLocale } from "@/i18n";
 
-export const metadata = {
-  title: "À Propos | ULTex",
-  description:
-    "Participations ULTex aux salons, forums et rencontres logistiques.",
+type AboutPageProps = {
+  params: Promise<{ locale: AppLocale }>;
 };
+
+export async function generateMetadata({
+  params,
+}: AboutPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return buildPageMetadata({ locale, route: "about" });
+}
 
 export default function AboutPage() {
   return (

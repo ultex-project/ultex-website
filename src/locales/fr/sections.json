@@ -1,0 +1,204 @@
+{
+  "contactBridge": {
+    "title": "Connectez vos ambitions au monde du commerce",
+    "subtitle": "Un seul clic pour démarrer une collaboration performante et booster votre logistique globale."
+  },
+  "passerelle": {
+    "title": {
+      "line1": "Votre passerelle logistique",
+      "line2": "Vers le commerce mondial"
+    },
+    "description": {
+      "line1": "ULTEX accompagne les entreprises marocaines et étrangères dans leurs opérations logistiques et commerciales à l'import comme à l'export.",
+      "line2": "Notre savoir-faire repose sur la rigueur, la réactivité et une maîtrise des réglementations douanières.",
+      "line3": "Nous sécurisons et optimisons chacune des maillons de vos chaînes logistiques."
+    },
+    "overlayButtons": {
+      "solutions": "Offres solutions",
+      "elogistics": "E-logistique"
+    },
+    "highlight": {
+      "line1": "Tout le monde vend",
+      "line2": "des services, ULTEX offre",
+      "line3": "des solutions"
+    },
+    "quote": "Fondée pour répondre aux besoins logistiques et commerciaux des entreprises, ULTEX allie expertise métier et technologie afin de garantir des prestations optimisées et conformes. Nous anticipons les contraintes douanières et les enjeux sectoriels, et innovons pour accélérer la croissance locale et internationale de nos clients, grâce à des solutions adaptées et évolutives.",
+    "infoButton": "Plus d'info",
+    "marquee": "Meilleure solution"
+  },
+  "valueProps": {
+    "title": {
+      "line1": "Optimisez vos flux logistiques et exploitez les",
+      "line2": "opportunités du marché mondial avec <brand>ULTEX</brand>"
+    },
+    "cards": {
+      "reputation": {
+        "title": "Réputation solide",
+        "description": "Une réputation fondée sur des partenariats durables, des résultats concrets et une confiance mutuelle."
+      },
+      "global": {
+        "title": "Maîtrise globale",
+        "description": "Des équipes à vos côtés pour piloter votre chaîne logistique de bout en bout, partout dans le monde.",
+        "cta": "Prendre rendez-vous"
+      },
+      "solutions": {
+        "title": "Solutions intégrées",
+        "description": "Une chaîne de services logistiques complète, conçue pour simplifier et optimiser vos opérations."
+      },
+      "expertise": {
+        "title": "Expertises pointues",
+        "description": "Une parfaite maîtrise des processus, portée par un savoir-faire qui s’adapte à vos contraintes."
+      }
+    }
+  },
+  "serviceFlow": {
+    "steps": {
+      "expert": {
+        "title": "Équipe experte",
+        "description": "Des spécialistes qualifiés qui maîtrisent chaque aspect de la logistique et du commerce national et international."
+      },
+      "global": {
+        "title": "Service global",
+        "description": "Une gestion complète de l'ensemble du processus logistique, du sourcing à la livraison finale."
+      },
+      "pricing": {
+        "title": "Prix étudiés",
+        "description": "Des formules flexibles et optimisées pour votre budget, sans compromis sur la qualité de service."
+      }
+    },
+    "footer": {
+      "tagline": "Transformez vos défis logistiques en leviers\nde croissance grâce aux solutions ULTEX.",
+      "cta": "Contactez nos experts"
+    }
+  },
+  "solutionsChain": {
+    "title": "Des solutions adaptées à votre chaîne logistique",
+    "description": "Découvrez l’ensemble des solutions logistiques et import-export proposées par ULTEX, pour chaque étape de votre chaîne de valeur.",
+    "cards": {
+      "sourcing": {
+        "title": "Sourcing et relation fournisseurs",
+        "description": "Nous identifions des fournisseurs fiables et compétitifs, adaptés à vos besoins d'importation."
+      },
+      "quality": {
+        "title": "Contrôle qualité et conformité",
+        "description": "Nous inspectons vos marchandises pour garantir leur conformité aux normes et à vos critères."
+      },
+      "transport": {
+        "title": "Transport et logistique globale",
+        "description": "Nous pilotons vos expéditions terrestres, maritimes et aériennes à l'échelle nationale et internationale."
+      },
+      "storage": {
+        "title": "Stockage et gestion de marchandise",
+        "description": "Nous offrons des solutions de stockage sûres et une gestion optimale de vos flux."
+      },
+      "customs": {
+        "title": "Transit douanier et dédouanement",
+        "description": "Nous gérons vos formalités douanières avec rigueur pour un import-export fluide et sécurisé."
+      },
+      "tracking": {
+        "title": "Suivi et livraison des cargaisons",
+        "description": "Nous assurons un suivi en temps réel et une livraison fiable selon vos engagements clients."
+      }
+    }
+  },
+  "sectors": {
+    "heading": {
+      "line1": "Une maîtrise transversale pour",
+      "line2": "vos ambitions commerciales"
+    },
+    "description": "Notre connaissance des secteurs d'activité et la maîtrise de leurs exigences nous permettent de concevoir des solutions logistiques adaptées à chaque filière. ULTEX transforme cette expertise en un levier stratégique pour soutenir votre croissance sur le marché mondial.",
+    "list": {
+      "agro": "Agro-alimentaire et Nutrition",
+      "textile": "Textile et Habillement",
+      "electronics": "Électronique et Électroménager",
+      "automotive": "Automobile et Mécanique",
+      "tech": "Technologies et Innovation",
+      "cosmetics": "Cosmétique et Hygiène"
+    },
+    "split": {
+      "title": "L'import-export, au cœur de votre secteur",
+      "quote": "Chaque secteur possède ses propres exigences, normes et spécificités logistiques. Grâce à notre polyvalence, ULTEX intervient dans des domaines stratégiques à forte portée nationale et internationale. Nous comprenons les réalités de votre industrie et adaptons nos services logistiques et import-export à votre filière pour vous garantir des solutions optimales à chaque phase."
+    },
+    "testimonials": {
+      "heading": {
+        "line1": "Des témoignages authentiques",
+        "line2": "et des relations durables"
+      },
+      "description": "La satisfaction de nos clients et la solidité de nos partenariats sont au cœur de notre démarche. Les témoignages que nous recevons reflètent la confiance bâtie sur la qualité de nos solutions logistiques et la relation humaine que nous cultivons au quotidien.",
+      "title": "La voix de nos clients, notre plus belle référence"
+    },
+    "testimonialsList": {
+      "ismail": {
+        "name": "S. Ismail",
+        "quote": "L’équipe d’ULTEX a su répondre à mes besoins avec efficacité et un grand sens du service. Un accompagnement sérieux du début à la fin, je les recommanderai sans hésiter."
+      },
+      "doha": {
+        "name": "B. Doha",
+        "quote": "ULTEX s’est montrée disponible et attentive à chaque étape de notre collaboration. Leur réactivité et leur approche humaine font vraiment la différence."
+      },
+      "youssef": {
+        "name": "S. Youssef",
+        "quote": "Un service rigoureux, des délais respectés, et une équipe toujours impliquée. Merci à ULTEX pour leur sérieux, et tous mes encouragements pour la suite !"
+      }
+    },
+    "resourcesList": {
+      "worldCup": {
+        "title": "Coupe du monde 2030 : impact sur l’économie du Royaume et le transport international",
+        "excerpt": "La Coupe du Monde 2030 est un événement d’envergure qui attire des millions de spectateurs et génère des opportunités logistiques majeures."
+      },
+      "greenFuel": {
+        "title": "La transition vers des carburants verts dans le maritime européen : chance pour le Maroc",
+        "excerpt": "Le Maroc s'impose comme un acteur clé de la transition vers des carburants maritimes propres en Europe, ouvrant la voie à de nouvelles coopérations."
+      },
+      "customs": {
+        "title": "Réglementations douanières 2024 : l’essentiel à connaître",
+        "excerpt": "Le changement réglementaire de 2024 redessine les pratiques d’import-export. Découvrez les évolutions à anticiper pour rester conforme."
+      }
+    },
+    "stats": {
+      "clients": "Clients satisfaits",
+      "partners": "Partenaires mondiaux",
+      "operations": "Opérations réalisées",
+      "cancelled": "Opérations annulées"
+    }
+  },
+  "marketPresence": {
+    "heading": {
+      "line1": "Profitez de notre présence sur les marchés stratégiques",
+      "line2": "et boostez votre commerce vers l'excellence"
+    },
+    "subtitle": "Demandez votre devis",
+    "features": {
+      "hubs": {
+        "title": "Hubs stratégiques",
+        "description": "Grâce à ses antennes et ses représentants locaux, ULTEX intervient sur des marchés clés comme la Chine et la Turquie."
+      },
+      "partners": {
+        "title": "Partenaires certifiés",
+        "description": "Un réseau mondial de collaborateurs spécialisés, pour garantir qualité, conformité et sécurité à chaque étape."
+      },
+      "services": {
+        "title": "Services sécurisés",
+        "description": "Des protocoles et des mesures de sécurité élevées pour préserver vos produits selon les normes internationales."
+      }
+    }
+  },
+  "resources": {
+    "heading": {
+      "line1": "Des ressources fiables pour",
+      "line2": "apprendre et progresser"
+    },
+    "description": "Restez à la pointe des évolutions du secteur logistique et de l'import-export. Découvrez nos ressources exclusives, nos analyses de marché et nos conseils pratiques pour optimiser vos opérations au quotidien, grâce à un contenu riche, actualisé et pensé pour soutenir votre croissance.",
+    "cta": "Plus d'info"
+  },
+  "events": {
+    "heading": {
+      "line1": "Participations ULTEX aux salons",
+      "line2": "et forums logistiques"
+    },
+    "description": "ULTEX participe activement aux grands évènements du secteur logistique, de l'import-export et du commerce international. À travers des salons, forums et rencontres professionnelles, nous développons notre présence et notre réseau grâce à des partenariats stratégiques."
+  },
+  "cta": {
+    "moreInfo": "Plus d'info"
+  }
+}

@@ -1,9 +1,32 @@
+"use client";
+
 // src/components/Footer.tsx
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+
 import ContactBridgeCTA from "@/app/(components)/ContactBridgeCTA";
+import { Link } from "@/i18n";
+
+const navLinks = [
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "solutions", href: "/solutions" },
+  { key: "events", href: "/events" },
+  { key: "resources", href: "/resources" },
+  { key: "contact", href: "/contact" },
+] as const;
+
+const serviceLocations = [
+  { key: "casablanca", phone: "(+212) 522-862135" },
+  { key: "marrakech", phone: "(+212) 674-755993" },
+  { key: "tanger", phone: "(+212) 524-304462" },
+  { key: "rabat", phone: "(+212) 774-004544" },
+] as const;
 
 export default function Footer() {
+  const tNav = useTranslations("nav");
+  const tFooter = useTranslations("footer");
+
   return (
     <footer className="relative overflow-hidden bg-[#11131A] w-full text-white pt-12 pb-6">
       {/* Centered background image */}
@@ -33,78 +56,48 @@ export default function Footer() {
                 height={50}
               />
               <p className="mt-4 text-sm text-gray-400">
-                Acteur marocain stratégique en logistique et import-export,
-                ULTEX déploie une présence active en Chine, en Turquie et dans
-                d&apos;autres hubs clés pour dynamiser vos projets à
-                l&apos;échelle mondiale.
+                {tFooter("intro")}
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Accès Rapide</h4>
+              <h4 className="font-bold mb-4">{tFooter("quickLinks")}</h4>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="/">Accueil</Link>
-                </li>
-                <li>
-                  <Link href="/about">À Propos</Link>
-                </li>
-                <li>
-                  <Link href="/solutions">Solutions</Link>
-                </li>
-                <li>
-                  <Link href="/events">Événements</Link>
-                </li>
-                <li>
-                  <Link href="/resources">Ressources</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact</Link>
-                </li>
+                {navLinks.map((item) => (
+                  <li key={item.key}>
+                    <Link href={item.href}>{tNav(item.key)}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Médias Sociaux</h4>
+              <h4 className="font-bold mb-4">{tFooter("social")}</h4>
               <p className="text-sm text-gray-400">
-                Restez connecté à la communauté ULTEX et suivez nos dernières
-                actualités sur les médias sociaux.
+                {tFooter("socialDescription")}
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Service Client</h4>
+              <h4 className="font-bold mb-4">{tFooter("customerService")}</h4>
               <div className="space-y-2 text-sm">
-                <div>
-                  Casablanca
-                  <br />
-                  (+212) 522-862135
-                </div>
-                <div>
-                  Marrakech
-                  <br />
-                  (+212) 674-755993
-                </div>
-                <div>
-                  Tanger
-                  <br />
-                  (+212) 524-304462
-                </div>
-                <div>
-                  Rabat
-                  <br />
-                  (+212) 774-004544
-                </div>
+                {serviceLocations.map((location) => (
+                  <div key={location.key}>
+                    {tFooter(`locations.${location.key}`)}
+                    <br />
+                    {location.phone}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-[200px] pt-6 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              ULTEX © 2025 - Tous droits réservés.
+              {tFooter("rights")}
             </p>
             <p className="text-sm text-gray-400 mt-2 md:mt-0">
-              Réalisation: © OneWeb
+              {tFooter("madeBy")}
             </p>
           </div>
         </div>

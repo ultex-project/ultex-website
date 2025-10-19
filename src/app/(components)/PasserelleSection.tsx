@@ -2,28 +2,46 @@
 "use client";
 
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+
 import QuoteCard from "@/app/(components)/QuoteCard";
 import InfoButton from "@/app/(components)/InfoButton";
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
 
 export default function PasserelleSection() {
+  const tSections = useTranslations("sections.passerelle");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const descriptionLines = ["line1", "line2", "line3"].map((key) =>
+    tSections(`description.${key}`)
+  );
+
   return (
-    <section className="py-20 bg-white">
+    <section className={`py-20 bg-white ${isRtl ? "text-right" : ""}`}>
       <div className="container mx-auto px-6 xl:px-24">
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 font-funnel-display">
-          Votre Passerelle Logistique
+        <h2
+          className={`text-4xl md:text-5xl font-bold mb-4 font-funnel-display ${
+            isRtl ? "lg:text-right" : "text-center"
+          }`}
+        >
+          {tSections("title.line1")}
           <br />
-          Vers le Commerce Mondial
+          {tSections("title.line2")}
         </h2>
 
         {/* Subheading */}
-        <p className="text-center text-gray-600 max-w-4xl mx-auto mb-12">
-          ULTEX accompagne les entreprises marocaines et étrangères dans leurs
-          opérations logistiques et commerciales à l&apos;import <br /> comme à
-          l&apos;export Notre savoir-faire repose sur la rigueur, la réactivité
-          et une maîtrise des réglementations douanières et <br /> des chaînes
-          logistiques.
+        <p
+          className={`text-gray-600 max-w-4xl mx-auto mb-12 ${
+            isRtl ? "lg:text-right" : "text-center"
+          }`}
+        >
+          {descriptionLines.map((line, index) => (
+            <span key={line}>
+              {index > 0 && <br />}
+              {line}
+            </span>
+          ))}
         </p>
 
         {/* Content Grid */}
@@ -40,42 +58,52 @@ export default function PasserelleSection() {
             />
 
             {/* Overlay Buttons */}
-            <div className="absolute top-6 left-6 space-y-3">
+            <div
+              className={`absolute top-6 space-y-3 ${
+                isRtl ? "right-6" : "left-6"
+              }`}
+            >
               <button className="bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-black transition">
-                Offers Solutions
+                {tSections("overlayButtons.solutions")}
               </button>
               <button className="bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-black transition">
-                E-Logistics ...
+                {tSections("overlayButtons.elogistics")}
               </button>
             </div>
           </div>
 
           {/* Right: Text Content */}
-          <div className="space-y-6">
+          <div className={`space-y-6 ${isRtl ? "lg:text-right" : ""}`}>
             <h3 className="text-5xl font-bold font-funnel-display">
-              Tout Le Monde Vend
+              {tSections("highlight.line1")}
               <br />
-              Des Services, ULTEX Offre
+              {tSections("highlight.line2")}
               <br />
-              Des Solutions
+              {tSections("highlight.line3")}
             </h3>
 
             {/* Highlighted Text Block */}
             <QuoteCard
-              text={
-                "Fondée pour répondre aux besoins logistiques et commerciaux des entreprises, ULTEX allie expertise métier et technologie afin de garantir des prestations optimisées et conformes. Nous     anticipons les contraintes douanières et les enjeux sectoriels, et innovons pour accélérer la croissance locale et internationale de nos clients, grâce à des solutions adaptées et évolutives."
-              }
+              text={tSections("quote")}
             />
 
             {/* CTA Buttons */}
-            <div className="flex w-full flex-col sm:flex-row items-center gap-4 pt-5">
-              <InfoButton text={"PLUS D'INFO"} />
+            <div
+              className={`flex w-full flex-col sm:flex-row items-center gap-4 pt-5 ${
+                isRtl ? "sm:flex-row-reverse" : ""
+              }`}
+            >
+              <InfoButton text={tSections("infoButton")} />
 
               {/* Pousse l'anim tout à droite */}
-              <div className="self-end sm:self-auto sm:ml-auto">
+              <div
+                className={`self-end sm:self-auto ${
+                  isRtl ? "sm:mr-auto" : "sm:ml-auto"
+                }`}
+              >
                 <DeleteWithMovingCursor
-                  text="Meilleure solution"
-                  mode="delete"
+                  text={tSections("marquee")}
+                  mode={isRtl ? "backspace" : "delete"}
                   stepMs={90}
                   loop
                 />

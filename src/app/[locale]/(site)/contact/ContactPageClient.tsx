@@ -1,11 +1,12 @@
-// src/app/(components)/page.tsx
 "use client";
 
+import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
-import Footer from "@/app/(components)/Footer";
-import QuoteCard from "@/app/(components)/QuoteCard";
+
 import DeleteWithMovingCursor from "@/app/(components)/DeleteBackwardButton";
+import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
+import QuoteCard from "@/app/(components)/QuoteCard";
 
 type QA = { q: string; a: string };
 
@@ -36,21 +37,22 @@ const faqs: QA[] = [
   },
 ];
 
-export default function Page() {
+export default function ContactPageClient() {
   const [open, setOpen] = useState<number | null>(0);
 
   function toggle(i: number) {
     setOpen((prev) => (prev === i ? null : i));
   }
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
     console.log("Contact request:", data);
     alert(
       "Merci ! Votre demande a bien été reçue. Nous revenons vers vous rapidement.",
     );
-    e.currentTarget.reset();
+    form.reset();
   }
 
   return (
@@ -96,8 +98,6 @@ export default function Page() {
                 loop
               />
 
-              {/* “Better Solution” badge */}
-
               <form onSubmit={onSubmit} className="mt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input name="fullName" label="Nom Complet" required />
@@ -119,89 +119,57 @@ export default function Page() {
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 rounded-md border border-blue-600 text-blue-600 px-5 py-2 font-semibold hover:bg-blue-50 transition"
+                    className="inline-flex items-center gap-2 rounded-md border border-blue-600 text-blue-600 px-5 py-2 font-semibold transition-colors hover:bg-blue-600 hover:text-white"
                   >
-                    ➤ ENVOYER
+                    Envoyer
                   </button>
                 </div>
               </form>
             </div>
 
             {/* FAQ */}
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Consultez les Réponses aux Questions Fréquentes
-              </h3>
-              <div className="space-y-3">
-                {faqs.map((item, i) => {
-                  const isOpen = open === i;
-                  return (
-                    <div
-                      key={i}
-                      className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+            <div className="space-y-4">
+              {faqs.map((faq, i) => {
+                const isOpen = open === i;
+                return (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-gray-200 bg-gray-50/60 hover:bg-gray-100/60 transition"
+                  >
+                    <button
+                      type="button"
+                      className="w-full flex items-center justify-between px-5 py-4 text-left"
+                      onClick={() => toggle(i)}
                     >
-                      <button
-                        type="button"
-                        onClick={() => toggle(i)}
-                        className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left"
-                        aria-expanded={isOpen}
-                      >
-                        <span className="font-medium text-gray-900">
-                          {item.q}
-                        </span>
-                        <Chevron open={isOpen} />
-                      </button>
-                      <div
-                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                        }`}
-                      >
-                        <div className="overflow-hidden">
-                          <p className="px-4 pb-4 text-gray-600">{item.a}</p>
-                        </div>
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">
+                        {faq.q}
+                      </span>
+                      <Chevron open={isOpen} />
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">
+                        {faq.a}
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Mini CTA bas de section */}
-          <div className="mt-16 text-center">
-            <h4 className="text-2xl md:text-3xl font-extrabold text-gray-900">
-              Faites Votre Premier Pas Vers une{" "}
-              <br className="hidden md:block" />
-              Logistique Sans Frontières
-            </h4>
-
-            {/* 3 atouts */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Feature
-                icon={<IconFlex />}
-                title="Des Solutions Fiables et Flexibles"
-              />
-              <Feature
-                icon={<IconOffer />}
-                title="Une Offre Détaillée et Sur-Mesure"
-              />
-              <Feature
-                icon={<IconHandshake />}
-                title="Une Relation de Partenariat Durable"
-              />
-            </div>
-
-            <div className="mt-6">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-md border border-blue-600 text-blue-600 px-5 py-2 font-semibold hover:bg-blue-50 transition"
-              >
-                ➤ Rendez-Vous
-              </a>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Call to action cards */}
+      <section className="py-16 bg-[#F5F6F8]">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Feature icon={<IconFlex />} title="Logistique flexible" />
+            <Feature icon={<IconOffer />} title="Offres personnalisées" />
+            <Feature icon={<IconHandshake />} title="Partenariats durables" />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
@@ -276,7 +244,6 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
-/* Icons (bleu) */
 function IconFlex() {
   return (
     <svg
@@ -295,6 +262,7 @@ function IconFlex() {
     </svg>
   );
 }
+
 function IconOffer() {
   return (
     <svg
@@ -310,6 +278,7 @@ function IconOffer() {
     </svg>
   );
 }
+
 function IconHandshake() {
   return (
     <svg
@@ -327,7 +296,7 @@ function IconHandshake() {
   );
 }
 
-function Feature({ icon, title }: { icon: React.ReactNode; title: string }) {
+function Feature({ icon, title }: { icon: ReactNode; title: string }) {
   return (
     <div className="text-center">
       <div>{icon}</div>

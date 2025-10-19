@@ -2,8 +2,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+
+import { Link } from "@/i18n";
 
 export type Resource = {
   title: string;
@@ -27,21 +29,34 @@ export default function ResourcesStrip({
   reserveLeftPx = 150,
   className = "",
 }: Props) {
+  const tSections = useTranslations("sections.cta");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const paddingStyle = isRtl
+    ? { paddingRight: reserveLeftPx }
+    : { paddingLeft: reserveLeftPx };
   return (
     <section className={`relative overflow-visible ${className}`}>
       {/* Left world map */}
-      <div className="absolute left-0 top-0 bottom-0 hidden lg:flex items-center z-[1] pointer-events-none">
+      <div
+        className={`absolute top-0 bottom-0 hidden lg:flex items-center z-[1] pointer-events-none ${
+          isRtl ? "right-0" : "left-0"
+        }`}
+      >
         <img
           src={worldMapSrc}
           alt="World map"
-          className="max-h-[520px] w-auto opacity-95 -ml-2"
+          className={`max-h-[520px] w-auto opacity-95 ${
+            isRtl ? "-mr-2" : "-ml-2"
+          }`}
+          style={isRtl ? { transform: "scaleX(-1)" } : undefined}
         />
       </div>
 
       {/* Cards grid (reserve space for the map on lg+) */}
       <div
         className="container mx-auto px-6 lg:px-12 relative z-10"
-        style={{ paddingLeft: reserveLeftPx }} // leaves room for the map
+        style={paddingStyle}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
           {items.slice(0, 3).map((r, i) => (
@@ -98,12 +113,13 @@ export default function ResourcesStrip({
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         aria-hidden="true"
+                        style={isRtl ? { transform: "scaleX(-1)" } : undefined}
                       >
                         <path d="M9 18l6-6-6-6" />
                         <path d="M3 12h12" />
                       </svg>
                     </span>
-                    PLUS D&apos;INFO
+                    {tSections("moreInfo")}
                   </Link>
                 </div>
               </div>

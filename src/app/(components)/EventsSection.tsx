@@ -1,6 +1,10 @@
 // src/app/(components)/EventsSection.tsx
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
+
+import { Link } from "@/i18n";
+
 type EventItem = {
   id: string;
   title: string;
@@ -20,23 +24,22 @@ export default function EventsSection({
   loading?: boolean; // if true, show skeletons
   count?: number; // how many skeletons to render
 }) {
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const tSections = useTranslations("sections.events");
   const showSkeleton = loading || !events || events.length === 0;
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section className={`py-12 md:py-16 bg-white ${isRtl ? "text-right" : ""}`}>
       <div className="container mx-auto px-6 lg:px-12">
         {/* Heading */}
         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight text-center">
-          Participations ULTex aux Salons et
+          {tSections("heading.line1")}
           <br className="hidden md:block" />
-          Forums Logistiques
+          {tSections("heading.line2")}
         </h2>
         <p className="mt-4 text-gray-600 max-w-3xl mx-auto text-center">
-          ULTex participe activement aux grands évènements du secteur
-          logistique, de l&apos;import-export et du commerce international. À
-          travers des salons, forums et rencontres professionnelles, nous
-          développons notre présence et notre réseau grâce à des partenariats
-          stratégiques.
+          {tSections("description")}
         </p>
 
         {/* Grid */}
@@ -45,7 +48,7 @@ export default function EventsSection({
             ? Array.from({ length: count }).map((_, i) => (
                 <SkeletonCard key={i} />
               ))
-            : events!.map((e) => <EventCard key={e.id} item={e} />)}
+            : events!.map((e) => <EventCard key={e.id} item={e} isRtl={isRtl} />)}
         </div>
       </div>
     </section>
@@ -60,11 +63,13 @@ function SkeletonCard() {
 }
 
 // Optional real card if/when you have data
-function EventCard({ item }: { item: EventItem }) {
+function EventCard({ item, isRtl }: { item: EventItem; isRtl: boolean }) {
   return (
-    <a
+    <Link
       href={item.href}
-      className="group block rounded-xl overflow-hidden bg-white border border-gray-100 shadow-[0_18px_40px_-20px_rgba(2,6,23,0.2)]"
+      className={`group block rounded-xl overflow-hidden bg-white border border-gray-100 shadow-[0_18px_40px_-20px_rgba(2,6,23,0.2)] ${
+        isRtl ? "text-right" : ""
+      }`}
     >
       <div className="h-40 md:h-44 bg-gray-100">
         <img
@@ -75,7 +80,7 @@ function EventCard({ item }: { item: EventItem }) {
         />
       </div>
       <div className="p-4">
-        <div className="text-sm text-gray-500">
+        <div className={`text-sm text-gray-500 ${isRtl ? "text-right" : ""}`}>
           {[item.date, item.location].filter(Boolean).join(" • ")}
         </div>
         <h3 className="mt-1 text-[15px] font-semibold text-gray-900 group-hover:text-blue-600">
@@ -87,6 +92,6 @@ function EventCard({ item }: { item: EventItem }) {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 }

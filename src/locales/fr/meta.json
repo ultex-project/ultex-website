@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "ULTEX - Votre passerelle e-logistique",
+    "description": "ULTEX accompagne les entreprises avec des solutions logistiques et import-export sur mesure, de la Chine au Maroc et vers le monde.",
+    "ogTitle": "ULTEX - Logistique internationale & import-export",
+    "ogDescription": "Découvrez l'expertise ULTex pour orchestrer vos flux internationaux, vos opérations douanières et vos livraisons dernière ligne.",
+    "ogImage": "/images/hero-bg.png",
+    "keywords": [
+      "logistique internationale",
+      "import export Maroc",
+      "dédouanement",
+      "transport multimodal",
+      "supply chain"
+    ]
+  },
+  "routes": {
+    "home": {
+      "title": "ULTEX - Votre passerelle e-logistique",
+      "description": "Solutions logistiques complètes, import-export sécurisé et accompagnement de vos flux internationaux.",
+      "ogTitle": "ULTEX | Logistique internationale et import-export",
+      "ogDescription": "Optimisez vos opérations globales avec ULTex : sourcing, transport, douane, stockage et livraison.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "about": {
+      "title": "À propos d'ULTEX",
+      "description": "Découvrez l'histoire, les valeurs et l'équipe ULTex qui orchestrent vos opérations logistiques internationales.",
+      "ogTitle": "À propos d'ULTEX | Experts logistiques",
+      "ogDescription": "Une équipe marocaine engagée qui connecte vos ambitions commerciales aux marchés internationaux.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "solutions": {
+      "title": "Solutions logistiques et import-export",
+      "description": "Des offres intégrées : sourcing, contrôle qualité, transport, transit douanier et livraison finale.",
+      "ogTitle": "Solutions ULTex | Supply chain sur mesure",
+      "ogDescription": "Choisissez les solutions ULTex pour sécuriser chaque maillon de votre chaîne logistique internationale.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "events": {
+      "title": "Événements et actualités ULTex",
+      "description": "Retrouvez les participations ULTex aux salons, forums et rencontres professionnelles de la supply chain.",
+      "ogTitle": "Événements ULTex | Salons & forums logistiques",
+      "ogDescription": "Suivez les événements et actualités ULTex dédiés à la logistique, l'import-export et l'innovation supply chain.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "resources": {
+      "title": "Ressources logistiques et analyses marché",
+      "description": "Guides, études et conseils pratiques pour optimiser vos opérations logistiques et votre commerce international.",
+      "ogTitle": "Ressources ULTex | Insights supply chain",
+      "ogDescription": "Explorez nos ressources exclusives pour garder une longueur d'avance sur la logistique mondiale.",
+      "ogImage": "/images/hero-bg.png"
+    },
+    "contact": {
+      "title": "Contact ULTex",
+      "description": "Parlez à nos experts logistiques pour démarrer un projet import-export ou optimiser vos flux internationaux.",
+      "ogTitle": "Contact ULTex | Discutons de vos flux",
+      "ogDescription": "Contactez ULTex pour bénéficier d'un accompagnement logistique sur mesure et accélérer votre croissance.",
+      "ogImage": "/images/hero-bg.png"
+    }
+  }
+}

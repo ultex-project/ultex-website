@@ -1,23 +1,71 @@
 "use client";
 
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import MarketPresenceSection from "@/app/(components)/sectors-parts/MarketPresenceSection";
 import { useRef } from "react";
+
+import MarketPresenceSection from "@/app/(components)/sectors-parts/MarketPresenceSection";
 import SectorsSplitSection from "@/app/(components)/SectorsSplitSection";
 import StatsBand from "@/app/(components)/StatsBand";
 import ResourcesStrip, { Resource } from "@/app/(components)/ResourcesStrip";
 
+const sectorConfig = [
+  { key: "agro", imgSrc: "/images/agro.svg" },
+  { key: "textile", imgSrc: "/images/textile.svg" },
+  { key: "electronics", imgSrc: "/images/electro.svg" },
+  { key: "automotive", imgSrc: "/images/auto.svg" },
+  { key: "tech", imgSrc: "/images/tech.svg" },
+  { key: "cosmetics", imgSrc: "/images/cosmetic.svg" },
+] as const;
+
+const resourcesConfig = [
+  {
+    key: "worldCup",
+    image: "/images/world-cup.svg",
+    href: "/resources/coupe-du-monde-2030-impact",
+  },
+  {
+    key: "greenFuel",
+    image: "/images/ship-larg.svg",
+    href: "/resources/transition-carburants-verts",
+  },
+  {
+    key: "customs",
+    image: "/images/douane.svg",
+    href: "/resources/reglementations-douanieres-2024",
+  },
+] as const;
+
+const testimonialsConfig = [
+  { key: "ismail", image: "/images/testimonials/ismail.svg" },
+  { key: "doha", image: "/images/testimonials/ismail.svg" },
+  { key: "youssef", image: "/images/testimonials/ismail.svg" },
+] as const;
+
+const statsConfig = [
+  { value: "236", key: "clients" },
+  { value: "16", key: "partners" },
+  { value: "316", key: "operations" },
+  { value: "11", key: "cancelled" },
+] as const;
+
 export default function SectorsSection() {
   const containerRef = useRef(null);
-  const sectors = [
-    { title: "Agro-alimentaire et Nutrition", imgSrc: "/images/agro.svg" },
-    { title: "Textile et Habillement", imgSrc: "/images/textile.svg" },
-    { title: "Électronique et Électroménager", imgSrc: "/images/electro.svg" },
-    { title: "Automobile et Mécanique", imgSrc: "/images/auto.svg" },
-    { title: "Technologies et Innovation", imgSrc: "/images/tech.svg" },
-    { title: "Cosmétique et Hygiène", imgSrc: "/images/cosmetic.svg" },
-  ];
+  const tSections = useTranslations("sections.sectors");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
+  const sectors = sectorConfig.map((sector) => ({
+    title: tSections(`list.${sector.key}`),
+    imgSrc: sector.imgSrc,
+  }));
+  const resources: Resource[] = resourcesConfig.map((item) => ({
+    title: tSections(`resourcesList.${item.key}.title`),
+    excerpt: tSections(`resourcesList.${item.key}.excerpt`),
+    image: item.image,
+    href: item.href,
+  }));
+
   function StarIcon({ className = "w-3 h-3" }) {
     return (
       <svg
@@ -31,64 +79,23 @@ export default function SectorsSection() {
     );
   }
 
-  type Testimonial = { name: string; text: string };
-  const resources: Resource[] = [
-    {
-      title:
-        "Coupe du monde 2030: quel impact sur l’économie du Royaume et le transport international",
-      excerpt:
-        "La Coupe du Monde 2030 est un événement sportif d’envergure mondiale qui attire des millions de spectateurs et génère des…",
-      image: "/images/world-cup.svg",
-      href: "/resources/coupe-du-monde-2030-impact",
-    },
-    {
-      title:
-        "La transition vers des carburants plus écologiques dans le transport maritime européen offre des opportunités favorables au Maroc",
-      excerpt:
-        "Le Maroc se positionne comme un acteur clé dans la transition vers des carburants maritimes verts en Europe, ce qui…",
-      image: "/images/ship-larg.svg",
-      href: "/resources/transition-carburants-verts",
-    },
-    {
-      title:
-        "Les nouvelles réglementations douanières en 2024 : ce que vous devez savoir",
-      excerpt:
-        "En cette année 2024, le monde des affaires au Maroc est en pleine effervescence avant l’entrée en vigueur de nouvelles…",
-      image: "/images/douane.svg",
-      href: "/resources/reglementations-douanieres-2024",
-    },
-  ];
-  const testimonials: Testimonial[] = [
-    {
-      name: "S. Ismail",
-      text:
-        "L’équipe d’ULTEX a su répondre à mes besoins avec efficacité et un grand sens du service. " +
-        "Un accompagnement sérieux du début à la fin, je les recommanderai sans hésiter.",
-    },
-    {
-      name: "B. Doha",
-      text:
-        "ULTEX s’est montrée disponible et attentive à chaque étape de notre collaboration. " +
-        "Leur réactivité et leur approche humaine font vraiment la différence.",
-    },
-    {
-      name: "S. Youssef",
-      text:
-        "Un service rigoureux, des délais respectés, et une équipe toujours impliquée. " +
-        "Merci à ULTEX pour leur sérieux, et tous mes encouragements pour la suite !",
-    },
-  ];
+  type Testimonial = { name: string; text: string; image: string };
+  const testimonials: Testimonial[] = testimonialsConfig.map((item) => ({
+    name: tSections(`testimonialsList.${item.key}.name`),
+    text: tSections(`testimonialsList.${item.key}.quote`),
+    image: item.image,
+  }));
 
-  const stats = [
-    { value: "236", labelTop: "Clients Satisfaits" },
-    { value: "16", labelTop: "Partenaires Mondiaux" },
-    { value: "316", labelTop: "Opérations Réalisées" },
-    { value: "11", labelTop: "Opérations Annulées" },
-  ];
+  const stats = statsConfig.map((stat) => ({
+    value: stat.value,
+    labelTop: tSections(`stats.${stat.key}`),
+  }));
 
   return (
     <section
-      className="py-20 bg-white overflow-hidden relative"
+      className={`py-20 bg-white overflow-hidden relative ${
+        isRtl ? "text-right" : ""
+      }`}
       ref={containerRef}
     >
       <div
@@ -97,23 +104,21 @@ export default function SectorsSection() {
       />
       <div className="container mx-auto px-6 xl:px-24">
         {/* Header */}
-        <div className="text-center lg:text-left max-w-3xl">
+        <div className={`text-center max-w-3xl ${isRtl ? "lg:text-right" : "lg:text-left"}`}>
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900">
-            Une Maîtrise Transversale Pour <br /> Vos Ambitions Commerciales
+            {tSections("heading.line1")}
+            <br />
+            {tSections("heading.line2")}
           </h2>
           <p className="mt-4 text-gray-600">
-            Notre connaissance des secteurs d&apos;activité et la maîtrise de
-            leurs exigences nous permettent de concevoir des solutions
-            logistiques adaptées à chaque filière. ULTEX transforme cette
-            expertise en un levier stratégique pour soutenir votre croissance
-            sur le marché mondial.
+            {tSections("description")}
           </p>
         </div>
 
         {/* Main content */}
         <div className="mt-12 flex flex-col lg:flex-row gap-8 items-start">
           {/* LEFT: rail + sticky ship (même logique que sticky top-24 de ta section solutions) */}
-          <div className="relative hidden lg:block w-[110px] self-stretch">
+          <div className={`relative hidden lg:block w-[110px] self-stretch ${isRtl ? "order-2" : ""}`}>
             {/* tube gris avec bords doux */}
             <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-25   from-gray-80 bg-white to-gray-80 border border-gray-200 shadow-inner" />
 
@@ -131,7 +136,7 @@ export default function SectorsSection() {
           </div>
 
           {/* RIGHT: cards + text */}
-          <div className="flex-1  items-start">
+          <div className={`flex-1 items-start ${isRtl ? "lg:text-right" : ""}`}>
             <SectorsSplitSection
               sectors={sectors}
               bgImage="/images/sectors-bg.svg"
@@ -142,36 +147,36 @@ export default function SectorsSection() {
               hoverDurationMs={800}
               gradientBottom
               glowTopRight
-              title="L'Import-Export, au Cœur de Votre Secteur"
+              title={tSections("split.title")}
+              titleClassName={`text-4xl font-bold text-blue-900 mb-4 ${
+                isRtl ? "text-right" : ""
+              }`}
               rightImage={{
                 src: "/images/import-export.svg",
                 alt: "Import Export",
                 width: 500,
                 height: 300,
-                className: "rounded-lg py-10",
+                className: `rounded-lg py-10 ${isRtl ? "ml-auto" : ""}`,
               }}
-              quoteText={
-                "Chaque secteur possède ses propres exigences, normes et spécificités logistiques. Grâce à notre polyvalence, ULTEX intervient dans des domaines stratégiques à forte portée nationale et internationale. Nous comprenons les réalités de votre industrie et adaptons services logistiques et import-export à votre filière pour vous garantir des solutions optimales à chaque phase."
-              }
+              quoteText={tSections("split.quote")}
+              reverseOnLg={isRtl}
             />
             {/* bloc suivant (titre témoignages) – gardé comme chez toi */}
             <div className="max-w-3xl mt-25 mb-12">
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-900">
-                Des Témoignages Authentique <br /> et Des Relations Durables
+                {tSections("testimonials.heading.line1")}
+                <br />
+                {tSections("testimonials.heading.line2")}
               </h2>
               <p className="mt-4 text-gray-600">
-                La satisfaction de nos clients et la solidité de nos
-                partenariats sont au cœur de notre démarche. Les témoignages que
-                nous <br /> recevons reflètent la confiance bâtie sur la qualité
-                de nos solutions logistiques et la relation humaine que nous
-                cultivons au <br /> quotidien.
+                {tSections("testimonials.description")}
               </p>
             </div>
             <div></div>
             <div className=" mx-auto ">
               {/* Title */}
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-funnel-display">
-                La Voix de Nos Clients, Notre Plus Belle Référence
+                {tSections("testimonials.title")}
               </h3>
 
               {/* Testimonials row */}
@@ -188,8 +193,8 @@ export default function SectorsSection() {
                     <Image
                       width={500}
                       height={100}
-                      src={"/images/testimonials/ismail.svg"}
-                      alt={"ismail"}
+                      src={t.image}
+                      alt={t.name}
                     />
                   </motion.div>
                 ))}
@@ -208,6 +213,9 @@ export default function SectorsSection() {
                 cardHoverScale={1.08}
                 groupHoverScale={1.02}
                 // bande de fond (facultatif)
+                bandClassName={`mt-8 rounded-2xl p-6 md:p-8 bg-[#EFF3F6] border border-gray-200/70 relative overflow-hidden ${
+                  isRtl ? "text-right" : ""
+                }`}
                 bandStyle={{
                   backgroundImage:
                     "radial-gradient(50% 80% at 10% 50%, rgba(99,102,241,.18), transparent 60%), radial-gradient(40% 60% at 90% 20%, rgba(59,130,246,.12), transparent 55%)",

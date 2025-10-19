@@ -2,11 +2,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import Header from "@/app/(components)/Header";
+import { notFound, useParams } from "next/navigation";
+
 import Footer from "@/app/(components)/Footer";
-import { useParams, useRouter } from "next/navigation";
+import Header from "@/app/(components)/Header";
+import { Link } from "@/i18n";
 
 type Resource = {
   slug: string;
@@ -82,11 +82,13 @@ function getResourceBySlug(slug: string) {
 }
 
 export default function ResourceDetailPage() {
-   const { slug } = useParams<{ slug: string }>();
-   const router = useRouter();
-  const s = Array.isArray(slug) ? slug[0] : slug;
-  const resource = getResourceBySlug(s);
-    if (!resource) { router.replace("/not-found"); return null; }
+  const { slug } = useParams<{ slug: string }>();
+  const resolvedSlug = Array.isArray(slug) ? slug[0] : slug;
+  const resource = getResourceBySlug(resolvedSlug);
+
+  if (!resource) {
+    notFound();
+  }
 
   const { title, intro, category, categories, tags, image, content } = resource;
 

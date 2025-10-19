@@ -2,8 +2,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+
+import { Link } from "@/i18n";
 
 type Resource = {
   title: string;
@@ -40,34 +42,39 @@ const resources: Resource[] = [
 ];
 
 export default function ResourcesSection() {
+  const tSections = useTranslations("sections.resources");
+  const locale = useLocale();
+  const isRtl = locale === "ar";
   return (
-    <section className="relative py-16 bg-[#F5F6F8] overflow-visible">
+    <section className={`relative py-16 bg-[#F5F6F8] overflow-visible ${isRtl ? "text-right" : ""}`}>
       {/* Bande noire sous les cartes (plein écran) */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[180px] bg-[#0B0E13] z-0" />
 
       {/* Colonne gauche décor (carte du monde) */}
-      <div className="absolute left-0 top-0 bottom-0 hidden lg:flex items-center z-[1]">
-        {/* ajuste la largeur/position selon ton visuel */}
+      <div
+        className={`absolute top-0 bottom-0 hidden lg:flex items-center z-[1] ${
+          isRtl ? "right-0" : "left-0"
+        }`}
+      >
         <img
           src="/images/footer-bg.svg"
           alt="World map"
-          className="max-h-[520px] w-auto opacity-90 -ml-4"
+          className={`max-h-[520px] w-auto opacity-90 ${
+            isRtl ? "-mr-4" : "-ml-4"
+          }`}
+          style={isRtl ? { transform: "scaleX(-1)" } : undefined}
         />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Titre + intro */}
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight font-funnel-display">
-          Des Ressources Fiables Pour
+          {tSections("heading.line1")}
           <br className="hidden md:block" />
-          Apprendre et Progresser
+          {tSections("heading.line2")}
         </h2>
         <p className="mt-4 max-w-4xl text-gray-600">
-          Restez à la pointe des évolutions du secteur logistique et de
-          l&apos;import-export. Découvrez nos ressources exclusives, nos
-          analyses de marché et nos conseils pratiques pour optimiser vos
-          opérations au quotidien, grâce à un contenu riche, actualisé et pensé
-          pour soutenir votre croissance.
+          {tSections("description")}
         </p>
 
         {/* Grille des cartes (au-dessus de la bande noire) */}
@@ -127,12 +134,13 @@ export default function ResourcesSection() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           aria-hidden="true"
+                          style={isRtl ? { transform: "scaleX(-1)" } : undefined}
                         >
                           <path d="M9 18l6-6-6-6" />
                           <path d="M3 12h12" />
                         </svg>
                       </span>
-                      PLUS D&apos;INFO
+                      {tSections("cta")}
                     </Link>
                   </div>
                 </div>
