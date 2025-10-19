@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import MarketPresenceSection from "@/app/(components)/sectors-parts/MarketPresenceSection";
 import SectorsSplitSection from "@/app/(components)/SectorsSplitSection";
@@ -55,6 +55,49 @@ export default function SectorsSection() {
   const tSections = useTranslations("sections.sectors");
   const locale = useLocale();
   const isRtl = locale === "ar";
+  const leftRailRef = useRef<HTMLDivElement | null>(null);
+  const shipRef = useRef<HTMLDivElement | null>(null);
+  const [shipTravel, setShipTravel] = useState(0);
+
+  useEffect(() => {
+    function updateShipTravel() {
+      const railHeight = leftRailRef.current?.offsetHeight ?? 0;
+      const sectionHeight = containerRef.current?.offsetHeight ?? 0;
+      const shipHeight = shipRef.current?.offsetHeight ?? 0;
+      const travel = Math.max(0, (railHeight || sectionHeight) - shipHeight);
+      setShipTravel(travel);
+    }
+
+    updateShipTravel();
+
+    window.addEventListener("resize", updateShipTravel);
+
+    let observer: ResizeObserver | undefined;
+    if (typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(updateShipTravel);
+      if (leftRailRef.current) observer.observe(leftRailRef.current);
+      if (containerRef.current) observer.observe(containerRef.current);
+      if (shipRef.current) observer.observe(shipRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateShipTravel);
+      observer?.disconnect();
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const shipTranslateY = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, shipTravel]),
+    {
+      stiffness: 120,
+      damping: 22,
+      mass: 0.6,
+    },
+  );
   const sectors = sectorConfig.map((sector) => ({
     title: tSections(`list.${sector.key}`),
     imgSrc: sector.imgSrc,
@@ -116,14 +159,21 @@ export default function SectorsSection() {
         </div>
 
         {/* Main content */}
-        <div className="mt-12 flex flex-col lg:flex-row gap-8 items-start">
+        <div className="mt-12 flex flex-col lg:flex-row gap-8 items-start lg:items-stretch">
           {/* LEFT: rail + sticky ship (même logique que sticky top-24 de ta section solutions) */}
-          <div className={`relative hidden lg:block w-[110px] self-stretch ${isRtl ? "order-2" : ""}`}>
+          <div
+            ref={leftRailRef}
+            className={`relative hidden lg:block w-[110px] self-stretch ${isRtl ? "order-2" : ""}`}
+          >
             {/* tube gris avec bords doux */}
             <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-25   from-gray-80 bg-white to-gray-80 border border-gray-200 shadow-inner" />
 
             {/* le bateau qui “descend puis colle” sous la navbar */}
-            <div className="sticky top-[var(--navbar)] pt-6 flex justify-center">
+            <motion.div
+              ref={shipRef}
+              className="sticky top-0 flex justify-center"
+              style={{ paddingTop: "var(--navbar)", y: shipTranslateY }}
+            >
               <Image
                 src="/images/ship.svg"
                 alt="Cargo Ship"
@@ -132,7 +182,7 @@ export default function SectorsSection() {
                 className="object-contain drop-shadow-md"
                 priority
               />
-            </div>
+            </motion.div>
           </div>
 
           {/* RIGHT: cards + text */}
