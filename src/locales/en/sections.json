@@ -26,6 +26,12 @@
     "infoButton": "More info",
     "marquee": "Best solution"
   },
+  "aboutPasserelle": {
+    "title": "An Ambitious Mission and a Strategic Vision",
+    "subtitle": "At ULTEx, we aim for excellence by connecting businesses to global markets with tailor-made logistics solutions. Our strategic vision, built on thoughtful choices, sustainably supports our clients' growth.",
+    "rightTitle": "Cross Trade Borders and Connect with Global Markets",
+    "quote": "ULTEx's mission is to effectively connect Moroccan and international companies to global markets. We develop reliable, flexible, and personalised logistics and import-export solutions. Each project is designed to optimise your flows, secure your exchanges, and foster sustainable growth. Thanks to our expertise, our presence in strategic hubs, and our adaptability, we support the success of your commercial operations. Whatever your profile, sector, or size, we provide a bespoke service aligned with your ambitions and objectives."
+  },
   "valueProps": {
     "title": {
       "line1": "Optimise your logistics flows and seize",

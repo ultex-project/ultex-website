@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import Footer from "@/app/(components)/Footer";
 import HeroPage from "@/app/(components)/HeroPage";
-import PasserelleSection from "@/app/(components)/PasserelleSection";
+import AboutPasserelleSection from "@/app/(components)/AboutPasserelleSection";
 import ServiceFlowSection from "@/app/(components)/ServiceFlowSection";
 import SolutionsChainSection from "@/app/(components)/SolutionsChainSection";
 import AboutValuePropositions from "@/app/(components)/AboutValuePropositions";
@@ -30,7 +30,7 @@ export default function AboutPage() {
         title="ULTex"
       />
       <AboutValuePropositions />
-      <PasserelleSection />
+      <AboutPasserelleSection />
       <ServiceFlowSection />
       <SolutionsChainSection />
 
