@@ -5,7 +5,7 @@ import HeroPage from "@/app/(components)/HeroPage";
 import PasserelleSection from "@/app/(components)/PasserelleSection";
 import ServiceFlowSection from "@/app/(components)/ServiceFlowSection";
 import SolutionsChainSection from "@/app/(components)/SolutionsChainSection";
-import ValuePropositions from "@/app/(components)/ValuePropositions";
+import AboutValuePropositions from "@/app/(components)/AboutValuePropositions";
 import { buildPageMetadata } from "@/lib/seo";
 import type { AppLocale } from "@/i18n";
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
         eyebrow="À Propos"
         title="ULTex"
       />
-      <ValuePropositions />
+      <AboutValuePropositions />
       <PasserelleSection />
       <ServiceFlowSection />
       <SolutionsChainSection />
@@ -38,3 +38,4 @@ export default function AboutPage() {
     </main>
   );
 }
+
