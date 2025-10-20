@@ -30,22 +30,27 @@ export default function AboutValuePropositions() {
     description: tSections(`cards.${card.key}.description`),
     cta: card.key === "global" ? tSections(`cards.global.cta`) : undefined,
   }));
-  const titleLines = [
-    tSections("title.line1"),
-    tSections.rich("title.line2", {
+  const sectionHeading = {
+    title: tSections("sectionHeading.title"),
+    subtitle: tSections.rich("sectionHeading.subtitle", {
       brand: (chunk) => <span className="text-yellow-400">{chunk}</span>,
     }),
-  ];
+  };
+  const overlayContent = {
+    title: tSections("overlay.title"),
+    description: tSections("overlay.description"),
+  };
 
   return (
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 xl:px-24">
           {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-left mb-12 font-funnel-display">
-            {titleLines[0]}
-            <br className="hidden md:block" />
-            {titleLines[1]}
+          <h2 className="text-3xl md:text-4xl font-bold text-left mb-4 font-funnel-display">
+            {sectionHeading.title}
           </h2>
+          <p className="text-base md:text-lg text-gray-600 md:max-w-3xl mb-12">
+            {sectionHeading.subtitle}
+          </p>
 
           {/* GRID */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -104,13 +109,16 @@ export default function AboutValuePropositions() {
 
                   {/* CONTENU OVERLAY (inchangé) */}
                   <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
-                    <h3 className="text-white text-3xl md:text-4xl leading-snug font-funnel-display max-w-3xl">
-                      {titleLines[0]}
-                      <br className="hidden sm:block" />
-                      {titleLines[1]}
-                    </h3>
+                    <div className="max-w-3xl">
+                      <h3 className="text-white text-3xl md:text-4xl leading-snug font-funnel-display">
+                        {overlayContent.title}
+                      </h3>
+                      <p className="text-white/90 text-base md:text-lg mt-4">
+                        {overlayContent.description}
+                      </p>
+                    </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 mt-6 md:mt-8">
                       <Link href="/contact" className="inline-flex items-center text-white">
                         <HoverArrowText
                             text={cards[1].cta ?? ""}
