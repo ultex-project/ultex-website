@@ -3,15 +3,20 @@
 
 import { useLocale } from "next-intl";
 
-export default function QuoteCard({ text }: { text: string }) {
+type QuoteCardProps = {
+  text: string;
+  className?: string;
+};
+
+export default function QuoteCard({ text, className }: QuoteCardProps) {
   const locale = useLocale();
   const isRtl = locale === "ar";
 
   return (
     <p
-      className={`bg-[#FCEBAD] text-justify text-[20px] md:text-[22px] text-[#303236] ${
+      className={`bg-[#FCEBAD] text-justify  text-[#303236] ${
         isRtl ? "text-right" : ""
-      }`}
+      } ${className ?? ""}`}
       style={{ padding: "0 .15em" }}
     >
       {isRtl ? (

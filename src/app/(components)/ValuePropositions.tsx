@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
+import HoverArrowText from "@/app/(components)/HoverArrowText";
 import { Link } from "@/i18n";
 
 const baseCards = [
@@ -64,15 +65,21 @@ export default function ValuePropositions() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="rounded-2xl overflow-hidden h-full shadow-lg hover:shadow-xl transition-all bg-white"
+              className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:shadow-xl md:h-[420px]"
             >
-              <div className="relative h-80 w-full">
+              <div className="relative flex-1 w-full">
                 <Image
                   src={cards[0].image}
                   alt={cards[0].title}
                   fill
                   className="object-cover"
                   priority
+                />
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-1/2 opacity-80
+                            [mask-image:linear-gradient(to_right,black,transparent)]
+                            [background:radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.9)_1.2px,transparent_1.6px)]
+                            [background-size:10px_10px]"
                 />
                 {/* Badge centré et parfaitement rond */}
                 <div className="absolute inset-0 pointer-events-none grid place-items-center">
@@ -89,7 +96,7 @@ export default function ValuePropositions() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 font-funnel-display">
+                <h3 className="mb-2 text-2xl font-bold font-funnel-display">
                   {cards[0].title}
                 </h3>
                 <p className="text-sm text-gray-600">{cards[0].description}</p>
@@ -103,10 +110,10 @@ export default function ValuePropositions() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all bg-black"
+              className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-black shadow-xl transition-all hover:shadow-2xl md:h-[420px]"
             >
               {/* Background video */}
-              <div className="relative h-[420px] w-full">
+              <div className="relative flex-1 w-full">
                 {/* Vidéo de fond */}
                 <video
                   aria-hidden
@@ -143,11 +150,11 @@ export default function ValuePropositions() {
                   </h3>
 
                   <div className="flex items-center gap-3">
-                    <Link
-                      href="/contact"
-                      className="text-white text-lg font-semibold underline underline-offset-4 hover:opacity-90"
-                    >
-                      {cards[1].cta}
+                    <Link href="/contact" className="inline-flex items-center text-white">
+                      <HoverArrowText
+                        text={cards[1].cta ?? ""}
+                        className="text-lg font-semibold"
+                      />
                     </Link>
                   </div>
                 </div>
@@ -171,6 +178,12 @@ export default function ValuePropositions() {
                   fill
                   className="object-cover"
                   priority
+                />
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-1/2 opacity-80
+                            [mask-image:linear-gradient(to_right,black,transparent)]
+                            [background:radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.9)_1.2px,transparent_1.6px)]
+                            [background-size:10px_10px]"
                 />
                 <div className="absolute inset-0 pointer-events-none grid place-items-center">
                   {/* Conteneur carré => cercle parfait avec rounded-full */}
@@ -207,6 +220,12 @@ export default function ValuePropositions() {
                   fill
                   className="object-cover"
                   priority
+                />
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-1/2 opacity-80
+                            [mask-image:linear-gradient(to_right,black,transparent)]
+                            [background:radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.9)_1.2px,transparent_1.6px)]
+                            [background-size:10px_10px]"
                 />
                 <div className="absolute inset-0 pointer-events-none grid place-items-center">
                   {/* Conteneur carré => cercle parfait avec rounded-full */}

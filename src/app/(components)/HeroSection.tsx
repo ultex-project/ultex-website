@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
 import Header from "@/app/(components)/Header";
-import { Link } from "@/i18n";
+import HoverArrowText from "@/app/(components)/HoverArrowText";
+import InfoButton from "@/app/(components)/InfoButton";
+import Link from "next/link";
 
 export default function HeroSection() {
   const tHero = useTranslations("hero");
@@ -91,7 +93,7 @@ export default function HeroSection() {
             className={`space-y-4 ${isRtl ? "text-right" : ""}`}
           >
             <h3 className="text-sm uppercase tracking-wider text-white font-funnel-display">
-              {tHero("ctaHeading")}
+              <HoverArrowText text={tHero("ctaHeading")} />
             </h3>
             <Link
               href="/contact"

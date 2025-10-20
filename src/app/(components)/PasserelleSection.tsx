@@ -74,7 +74,7 @@ export default function PasserelleSection() {
 
           {/* Right: Text Content */}
           <div className={`space-y-6 ${isRtl ? "lg:text-right" : ""}`}>
-            <h3 className="text-5xl font-bold font-funnel-display">
+            <h3 className="text-3xl  font-bold font-funnel-display">
               {tSections("highlight.line1")}
               <br />
               {tSections("highlight.line2")}
@@ -85,11 +85,12 @@ export default function PasserelleSection() {
             {/* Highlighted Text Block */}
             <QuoteCard
               text={tSections("quote")}
+              className="text-sm"
             />
 
             {/* CTA Buttons */}
             <div
-              className={`flex w-full flex-col sm:flex-row items-center gap-4 pt-5 ${
+              className={`flex w-full flex-col sm:flex-row items-center gap-3 pt-4 ${
                 isRtl ? "sm:flex-row-reverse" : ""
               }`}
             >
