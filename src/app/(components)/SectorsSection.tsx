@@ -51,7 +51,7 @@ const statsConfig = [
 ] as const;
 
 export default function SectorsSection() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const tSections = useTranslations("sections.sectors");
   const locale = useLocale();
   const isRtl = locale === "ar";
