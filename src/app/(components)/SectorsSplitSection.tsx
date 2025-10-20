@@ -3,6 +3,7 @@
 
 import Image from "next/image"; // ← ajuste le chemin si besoin
 import QuoteCard from "@/app/(components)/QuoteCard"; // ← ajuste le chemin si besoin
+import HoverArrowText from "@/app/(components)/HoverArrowText";
 import React from "react";
 import SectorGridPanel from "@/app/(components)/SectorGridPanel";
 
@@ -102,7 +103,12 @@ export default function SectorsSplitSection({
 
         {quoteText && <QuoteCard text={quoteText} />}
 
-        {subHeading && <h4 className={subHeadingClassName}>{subHeading}</h4>}
+        {subHeading && (
+          <HoverArrowText
+            text={subHeading}
+            className={["block", subHeadingClassName].filter(Boolean).join(" ")}
+          />
+        )}
       </div>
     </div>
   );

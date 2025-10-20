@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useRef } from "react";
 
+import HoverArrowText from "@/app/(components)/HoverArrowText";
+
 const cardConfig = [
   {
     key: "sourcing",
@@ -123,13 +125,36 @@ export default function SolutionsChainSection() {
           {/* Right sticky */}
           {/* Colonne droite sticky (tu gardes ton fond SVG) */}
           <div className={`lg:col-span-1 ${isRtl ? "lg:order-first" : ""}`}>
-            {/*<img src={"/images/solutions-electro.svg"}/>*/}
-            <div className="relative sticky top-24 p-4 overflow-hidden">
-              <img
-                src="/images/solutions-rc-cropped.png"
-                alt="background pattern"
-                className="w-full h-auto "
-              />
+            <div className="relative sticky top-24">
+              <div className="relative overflow-hidden rounded-2xl ">
+                <img
+                  src="/images/solutions-rc-cropped.png"
+                  alt="background pattern"
+                  className="w-full h-auto object-cover"
+                />
+                <div
+                  className={`absolute inset-0 flex flex-col justify-center gap-6 px-24 py-4  text-center text-white ${
+                    isRtl ? "items-end text-right" : "items-start text-left"
+                  }`}
+                >
+                  <h3 className="text-md md:text-lg font-semibold leading-snug">
+                    Avec&nbsp;ULTEx, Votre&nbsp;Chaîne <br/> Import-Export&nbsp;est Maîtrisée,
+                    du&nbsp;Sourcing&nbsp;à la&nbsp;Livraison.
+                  </h3>
+                  <p className="text-[0.5em] md:text-[0.7em] text-white/80 leading-relaxed">
+                    Du transport opérationnel au conseil stratégique, ULTEx adopte une
+                    approche globale et une stratégie qui repose sur l’écoute active, l’analyse
+                    des flux et la recherche de performance durable. Chaque prestation est pensée
+                    comme une solution intégrée, adaptée aux réalités terrain de chaque client. Nous
+                    croyons en une logistique intelligente, agile et conçue pour accompagner la
+                    croissance de votre activité.
+                  </p>
+                  <HoverArrowText
+                    text="Solutions et Services"
+                    className="text-sm uppercase tracking-wide"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
